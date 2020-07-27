@@ -1,0 +1,88 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card">
+              <section class="form-gradient">
+                <!--Form with header-->
+                <mdb-card>
+
+                  <!--Header-->
+                  <div class="header pt-3 peach-gradient">
+
+                    <div class="row d-flex justify-content-center">
+                      <h3 class="white-text mb-3 pt-3 font-weight-bold">Log in</h3>
+                    </div>
+
+                  </div>
+                  <!--Header-->
+
+                  <mdb-card-body class="mx-4 mt-4">
+
+                    <!--Body-->
+                    <form [formGroup]="LoginForm">
+
+
+                      <div class="md-form">
+                        <input type="text" id="gradientFormEmailEx" formControlName="email" class="form-control"
+                          mdbInput>
+                        <label for="email">Your email</label>
+                        <mat-error *ngIf="LoginForm.hasError('required','email')">
+                          email is required
+                        </mat-error>
+                        <mat-error *ngIf="LoginForm.hasError('email','email')">
+                          email is invalid
+                        </mat-error>
+                      </div>
+
+                      <div class="md-form pb-1 pb-md-3">
+                        <input type="password" id="gradientFormPasswordEx" formControlName="password"
+                          class="form-control" [type]="hide ? 'password' : 'text'" required mdbInput>
+                        <label for="password">Your password</label>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="LoginForm.hasError('required','password')">
+                          password is required
+                        </mat-error>
+                        <p class="font-small grey-text d-flex justify-content-end">Forgot
+                          <a routerLink="/forget" class="dark-grey-text ml-1 font-weight-bold"> Password?</a>
+                        </p>
+                      </div>
+                    </form>
+
+                    <!--Grid row-->
+                    <div class="row d-flex align-items-center mb-4">
+
+                      <!--Grid column-->
+                      <div class="col-md-1 col-md-5 d-flex align-items-start">
+                        <div class="text-center">
+                          <button type="button" [disabled]="!LoginForm.valid" mdbBtn color="grey" rounded="true"
+                            class="z-depth-1a waves-light" mdbWavesEffect (click)="login()">Log in</button>
+                        </div>
+                      </div>
+                      <!--Grid column-->
+
+                      <!--Grid column-->
+                      <div class="col-md-7">
+                        <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account?
+                          <a routerLink="/register" class="dark-grey-text ml-1 font-weight-bold"> Sign up</a>
+                        </p>
+                      </div>
+                      <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+                  </mdb-card-body>
+
+                </mdb-card>
+                <!--/Form with header-->
+
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -18,8 +21,8 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
+import { LoginComponent } from './views/common/login/login.component';
+import { RegisterComponent } from './views/common/register/register.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -40,9 +43,16 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { ForgetComponent } from './views/common/forget/forget.component';
+import { ResetComponent } from './views/common/reset/reset.component';
+import {ToasterModule, ToasterService} from 'angular2-toaster';
+import { from } from 'rxjs';
 
 @NgModule({
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -52,6 +62,8 @@ import { ChartsModule } from 'ng2-charts';
     AppHeaderModule,
     AppSidebarModule,
     PerfectScrollbarModule,
+    ToasterModule,
+    ToasterModule.forRoot(),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule
@@ -62,7 +74,9 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgetComponent,
+    ResetComponent
   ],
   providers: [{
     provide: LocationStrategy,
