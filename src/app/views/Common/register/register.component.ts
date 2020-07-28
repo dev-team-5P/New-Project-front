@@ -30,5 +30,16 @@ export class RegisterComponent implements OnInit {
       etablisement: new FormControl ('', Validators.required),
     })
   }
-
+  register() {
+    this.auth.Register(this.RegisterForm.value).subscribe(
+      () => {
+        this.router.navigate(["/login"]);
+        this.toastr.pop('success', 'Args Title', 'Args Body');
+      },
+      (err) => {
+        this.router.navigate(["/register"]);
+        return this.toastr.pop('warning', 'Args Title', 'Args Body');
+      }
+    );
+  }
 }
