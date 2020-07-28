@@ -11,11 +11,16 @@ import { ToasterService } from 'angular2-toaster';
 })
 export class ForgetComponent implements OnInit {
 
+  resetForm: FormGroup;
+
   constructor(private auth: AuthService,
     private router: Router,
     private toastr: ToasterService) { }
 
   ngOnInit(): void {
+    this.resetForm = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.email]),
+    });
   }
 
 }
