@@ -28,5 +28,16 @@ export class RegisteretabComponent implements OnInit {
       logo: new FormControl ('', Validators.required),
     });
   }
-
+  registeretab() {
+    this.auth.Registeretab(this.RegisteretabForm.value).subscribe(
+      () => {
+        this.router.navigate(["/login"]);
+        this.toastr.pop('success', 'Args Title', 'Args Body');
+      },
+      (err) => {
+        this.router.navigate(["/register"]);
+        return this.toastr.pop('warning', 'Args Title', 'Args Body');
+      }
+    );
+  }
 }

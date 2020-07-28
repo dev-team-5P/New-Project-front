@@ -22,5 +22,16 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required),
     });
   }
-
+  login() {
+  this.auth.signin(this.LoginForm.value).subscribe(
+    (res: any) => {
+      localStorage.setItem("token", res.message);
+      this.toastr.pop('success', 'Args Title', 'Args Body');
+      this.router.navigateByUrl("/home/dashboard");
+    },
+    (err) => {
+      return this.toastr.pop('warning', 'Args Title', 'Args Body');
+    }
+  );
+}
 }

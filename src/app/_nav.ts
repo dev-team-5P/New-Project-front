@@ -167,18 +167,6 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Widgets',
-    url: '/widgets',
-    icon: 'icon-calculator',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
-  {
-    divider: true
-  },
-  {
     title: true,
     name: 'Extras',
   },
@@ -208,15 +196,5 @@ export const navItems: INavData[] = [
         icon: 'icon-star'
       }
     ]
-  },
-  {
-    name: 'Disabled',
-    url: '/dashboard',
-    icon: 'icon-ban',
-    badge: {
-      variant: 'secondary',
-      text: 'NEW'
-    },
-    attributes: { disabled: true },
   },
 ];

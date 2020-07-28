@@ -14,12 +14,12 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 /*******************************Register etablissement ********************* */
-  Register(data) {
+  Registeretab(data) {
     const url = `${this.BaseUrl}/Etablisement/register`;
     return this.http.post(url, data);
   }
   /*******************************Register canndidate ********************* */
-  Registercand(data) {
+  Register(data) {
     const url = `${this.BaseUrl}/Condidat/register`;
     return this.http.post(url, data);
   }

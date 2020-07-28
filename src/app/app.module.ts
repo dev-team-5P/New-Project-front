@@ -47,6 +47,7 @@ import { RegisterComponent } from './views/common/register/register.component';
 import { RegisteretabComponent } from './views/common/registeretab/registeretab.component';
 import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
+import { AuthInterceptor } from './views/Common/interceptor';
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -134,8 +135,11 @@ import { from } from 'rxjs';
     RegisteretabComponent
   ],
   providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    // provide: LocationStrategy,
+    // useClass: HashLocationStrategy,
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
   }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
