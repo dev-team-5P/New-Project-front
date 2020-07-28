@@ -1,1 +1,26 @@
-<p>forget works!</p>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="padding: 40px;">
+
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Forgot Password</mat-card-title>
+        </mat-card-header>
+        <br>
+        <form [formGroup]="resetForm">
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" formControlName="email" required />
+                    <mat-error *ngIf="resetForm.hasError('required','email')">
+                        email is required
+                    </mat-error>
+                    <mat-error *ngIf="resetForm.hasError('email','email')">
+                        email is invalid
+                    </mat-error>
+                </mat-form-field>
+            </mat-card-content>
+            <br>
+            <button [disabled]="!resetForm.valid" type="button" mat-stroked-button color="accent" class="btn-block"
+                (click)="reqReset()">Confirm email</button>
+            <br>
+        </form>
+    </mat-card>
+</div>
