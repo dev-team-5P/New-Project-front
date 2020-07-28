@@ -5,29 +5,27 @@ import { AuthService } from '../../../services/auth.service';
 import { ToasterService } from 'angular2-toaster';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registeretab',
+  templateUrl: './registeretab.component.html',
+  styleUrls: ['./registeretab.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisteretabComponent implements OnInit {
 
-  Roles: any = ['Candidat', 'Etablissement', 'Admin'];
-  RegisterForm: FormGroup;
+  RegisteretabForm: FormGroup;
   hide = true;
-
   constructor(private auth: AuthService,
     private router: Router,
     private toastr: ToasterService) { }
 
   ngOnInit(): void {
-    this.RegisterForm = new FormGroup ({
+    this.RegisteretabForm = new FormGroup ({
       nom: new FormControl ('', Validators.required),
-      prenom: new FormControl ('', Validators.required),
       adresse: new FormControl ('', Validators.required),
       téléphone: new FormControl ('', Validators.required),
+      fax : new FormControl ('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
-      etablisement: new FormControl ('', Validators.required),
+      logo: new FormControl ('', Validators.required),
     })
   }
 

@@ -44,8 +44,9 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/common/login/login.component';
 import { RegisterComponent } from './views/common/register/register.component';
-import { ForgetComponent } from './views/common/forget/forget.component';
-import { ResetComponent } from './views/common/reset/reset.component';
+import { RegisteretabComponent } from './views/common/registeretab/registeretab.component';
+import { ForgetComponent } from './views/Common/forget/forget.component';
+import { ResetComponent } from './views/Common/reset/reset.component';
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -130,6 +131,7 @@ import { from } from 'rxjs';
     RegisterComponent,
     ForgetComponent,
     ResetComponent,
+    RegisteretabComponent
   ],
   providers: [{
     provide: LocationStrategy,
