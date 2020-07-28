@@ -26,7 +26,7 @@ export class RegisteretabComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
       logo: new FormControl ('', Validators.required),
-    })
+    });
   }
 
 }
