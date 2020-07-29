@@ -69,8 +69,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { from } from 'rxjs';
-import { ListetablissementComponent } from './views/superadmin/listetablissement/listetablissement.component';
-
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -134,7 +132,6 @@ import { ListetablissementComponent } from './views/superadmin/listetablissement
     ForgetComponent,
     ResetComponent,
     RegisteretabComponent,
-    ListetablissementComponent
   ],
   providers: [{
     // provide: LocationStrategy,

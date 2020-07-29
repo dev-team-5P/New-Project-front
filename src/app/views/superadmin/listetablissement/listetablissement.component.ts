@@ -5,7 +5,7 @@ import * as jwt_decode from 'jwt-decode';
 export interface Data {
   nom: string;
   adresse: string;
-  téléphone: number;
+  tel: number;
   fax: number;
 }
 
@@ -17,17 +17,17 @@ const ELEMENT_DATA: Data[] = [
   styleUrls: ['./listetablissement.component.css']
 })
 export class ListetablissementComponent implements OnInit {
-  displayedColumns: string[] = ['Etablissement', 'adresse', 'téléphone', 'fax'];
+  displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax'];
   
-  dataSource : any[] = [];
+  dataSource;
 
   constructor(private adminservice: SuperadminService,) { }
 
   ngOnInit(): void {
-    this.getallpetab();
+    this.getalletab();
   }
   // ************* get all etabllisement for superAdmin*******//
-  getallpetab() {
+  getalletab() {
     // if (this.decoded.data.role === 'superAdmin') 
     {
       this.adminservice.getall().subscribe(data=> {

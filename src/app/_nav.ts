@@ -5,10 +5,18 @@ export const navItems: INavData[] = [
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
+  },
+  {
+    name: 'superadmin',
+    url: '/superadmin',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'list etablissement',
+        url: '/superadmin/listetablissement',
+        icon: 'icon-drop',
+      },
+    ],
   },
   {
     title: true,

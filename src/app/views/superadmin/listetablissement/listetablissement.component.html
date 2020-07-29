@@ -1,23 +1,28 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-table #table  [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="nom">
+    <mat-header-cell *matHeaderCellDef> nom </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="adresse">
+    <mat-header-cell *matHeaderCellDef> adresse </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+  </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> id </th>
-    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+  <ng-container matColumnDef="tel">
+    <mat-header-cell *matHeaderCellDef> tel </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.tel}} </mat-cell>
   </ng-container>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="userId">
-    <th mat-header-cell *matHeaderCellDef> userId. </th>
-    <td mat-cell *matCellDef="let element"> {{element.adresse}} </td>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="fax">
+    <mat-header-cell *matHeaderCellDef> fax </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fax}} </mat-cell>
   </ng-container>
 
- <!-- Name Column -->
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef> title </th>
-    <td mat-cell *matCellDef="let element"> {{element.fax}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
