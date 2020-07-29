@@ -69,7 +69,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { from } from 'rxjs';
-
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -132,7 +131,7 @@ import { from } from 'rxjs';
     RegisterComponent,
     ForgetComponent,
     ResetComponent,
-    RegisteretabComponent
+    RegisteretabComponent,
   ],
   providers: [{
     // provide: LocationStrategy,

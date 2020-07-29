@@ -1,0 +1,62 @@
+        
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+          Liste des établissements
+      </div>
+      <div class="card-body">
+          <div class="example-header">
+            <mat-form-field style="width: 98%;">  
+              <input matInput (keyup)="Filter($event.target.value)" placeholder="Search ">  
+          </mat-form-field>  
+            </div>
+            <div class="mat-elevation-z8">
+            <mat-table #table  [dataSource]="dataSource" matSort class="mat-elevation-z8">
+              <!-- Position Column -->
+              <ng-container matColumnDef="nom">
+                <mat-header-cell  mat-sort-header *matHeaderCellDef> nom </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="adresse">
+                <mat-header-cell  mat-sort-header *matHeaderCellDef> adresse </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="tel">
+                <mat-header-cell  mat-sort-header *matHeaderCellDef> tel </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.tel}} </mat-cell>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="fax">
+                <mat-header-cell  mat-sort-header *matHeaderCellDef> fax </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.fax}} </mat-cell>
+              </ng-container>
+              <!-- buttons -->
+              <ng-container matColumnDef="Edit">
+                <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button class="btn btn-info">Edit</button>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Delete">
+                <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button class="btn btn-danger">Delete</button>
+                </mat-cell>
+              </ng-container>
+              <!-- buttons -->
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>

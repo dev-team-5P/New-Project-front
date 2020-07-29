@@ -12,6 +12,7 @@ import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
 import { from } from 'rxjs';
 
+
 export const routes: Routes = [
   {
     path: '',
@@ -74,6 +75,20 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
+      {
+        path: "dashboard",
+        loadChildren: () =>
+          import("./views/dashboard/dashboard.module").then(
+            (m) => m.DashboardModule
+          ),
+      },
+      {
+        path: "superadmin",
+        loadChildren: () =>
+          import("./views/superadmin/superadmin.module").then(
+            (m) => m.SuperadminModule
+          ),
+      },
       {
         path: 'base',
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
