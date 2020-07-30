@@ -76,17 +76,24 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: "dashboard",
+        path: 'dashboard',
         loadChildren: () =>
-          import("./views/dashboard/dashboard.module").then(
+          import('./views/dashboard/dashboard.module').then(
             (m) => m.DashboardModule
           ),
       },
       {
-        path: "superadmin",
+        path: 'superadmin',
         loadChildren: () =>
-          import("./views/superadmin/superadmin.module").then(
+          import('./views/superadmin/superadmin.module').then(
             (m) => m.SuperadminModule
+          ),
+      },
+      {
+        path: 'etablissement',
+        loadChildren: () =>
+          import('./views/etablisseement/etablissement.module').then(
+            (m) => m.EtablissementModule
           ),
       },
       {

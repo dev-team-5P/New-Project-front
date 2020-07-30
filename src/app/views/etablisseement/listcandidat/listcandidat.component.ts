@@ -1,39 +1,37 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SuperadminService } from '../../../services/superadmin.service';
+import { EtablissementService } from '../../../services/etablissement.service';
 import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+
 export interface Data {
   nom: string;
-  adresse: string;
-  tel: number;
-  fax: number;
+  prenon: string;
+  email: string;
+  phone: number;
 }
-
 const ELEMENT_DATA: Data[] = [
 ];
+
 @Component({
-  selector: 'app-listetablissement',
-  templateUrl: './listetablissement.component.html',
-  styleUrls: ['./listetablissement.component.css']
+  selector: 'app-listcandidat',
+  templateUrl: './listcandidat.component.html',
+  styleUrls: ['./listcandidat.component.css']
 })
-export class ListetablissementComponent implements OnInit {
+export class ListcandidatComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSortModule, {static: false}) sort: MatSortModule;
-  displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
+  displayedColumns: string[] = ['nom', 'prenon', 'email', 'phone', 'Edit', 'Delete'];
   dataSource: any;
 
-
-  constructor(private adminservice: SuperadminService, ) { }
+  constructor(private etablissementService: EtablissementService) { }
 
   ngOnInit(): void {
-    this.getalletab();
-
+    this.getallcand();
   }
-  // ************* get all etabllisement for superAdmin*******//
-  getalletab() {
-    this.adminservice.getall()
+  getallcand() {
+    this.etablissementService.getallcand()
       .subscribe(
       res => {
         this.dataSource = new MatTableDataSource();
