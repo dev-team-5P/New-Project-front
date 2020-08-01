@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { ToasterService } from 'angular2-toaster';
 import { SuperadminService } from '../../../services/superadmin.service';
+import * as jwt_decode from "jwt-decode";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,10 +12,10 @@ import { SuperadminService } from '../../../services/superadmin.service';
 })
 export class RegisterComponent implements OnInit {
   
-  Roles: any = ['Candidat', 'Etablissement', 'Admin'];
   RegisterForm: FormGroup;
   hide = true;
   ListEtablissements ;
+  decoded = jwt_decode(this.superAdmin.token); 
 
   constructor(private auth: AuthService,
     private router: Router,
@@ -30,13 +31,13 @@ export class RegisterComponent implements OnInit {
       telephone: new FormControl ('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
-      etablisement: new FormControl ('', Validators.required),
+      etablisement: new FormControl (null , Validators.required),
     })
-    debugger;
-    this.ListEtablissements = this.superAdmin.getall();
+    // this.ListEtablissements = this.superAdmin.getall();
+    this.getetab();
   }
   register() {
-    this.auth.Register(this.RegisterForm.value).subscribe(
+    this.auth.Register(this.RegisterForm.value.etablisement, this.RegisterForm.value).subscribe(
       () => {
         this.router.navigate(["/login"]);
         //this.toastr.pop('success', 'Args Title', 'Args Body');
@@ -46,5 +47,10 @@ export class RegisterComponent implements OnInit {
         //return this.toastr.pop('warning', 'Args Title', 'Args Body');
       }
     );
+  }
+  getetab() {
+    if (this.decoded.data.role === "condidat") {
+      this.superAdmin.getall()
+      }
   }
 }
