@@ -23,9 +23,14 @@ export class AuthService {
     const url = `${this.BaseUrl}/Etablisement/register`;
     return this.http.post(url, data);
   }
+
+  upload(data, id) {
+    const url = `${this.BaseUrl}/uploadimg/${id}`;
+    return this.http.put(url, data);
+  }
   /*******************************Register canndidate ********************* */
-  Register(data) {
-    const url = `${this.BaseUrl}/Condidat/register`;
+  Register(j, data) {
+    const url = `${this.BaseUrl}/Condidat/${j}/register`;
     return this.http.post(url, data);
   }
 /*******************************Login********************* */

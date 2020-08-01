@@ -13,8 +13,8 @@ export class EtablissementService {
 
   constructor(private http: HttpClient) { }
 
-  addcand(j, data) {
-    const url = `${this.BaseUrl}/Etablisement/${j}/ajoucondidat`;
+  addcand(data) {
+    const url = `${this.BaseUrl}/Etablisement/ajoucondidat`;
     return this.http.post(url, data);
   }
 

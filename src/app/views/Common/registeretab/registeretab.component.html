@@ -45,10 +45,23 @@
                     </mat-error>
                 </mat-form-field>
                 <br>
-                <mat-form-field class="example-full-width">
+                <!-- <mat-form-field class="example-full-width">
                     <input matInput type='text' placeholder="Logo" formControlName='logo' required>
                 </mat-form-field>
-                <br>
+                <br> -->
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="file-input"
+                      >Etablissement Logo</label
+                    >
+                    <div class="col-md-9">
+                      <input
+                        type="file"
+                        id="file-input"
+                        (change)="onFileChange($event)"
+                        name="file-input"
+                      />
+                    </div>
+                  </div>
             </mat-card-content>
 
             <button [disabled]="!RegisteretabForm.valid" type="button" mat-stroked-button color="accent" class="btn-block"  (click)="registeretab()">Register</button>

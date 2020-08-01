@@ -47,8 +47,8 @@
                 <br>
                 <mat-form-field class="example-full-width">
                     <mat-label>Choose an Etablissement...</mat-label>
-                    <mat-select [(value)]="selected" type='text' formControlName='etablisement' required>
-                        <mat-option [value]="etablisement._id" *ngFor="let etablisement of ListEtablissements">{{etablisement.nom}}
+                    <mat-select type='text' formControlName='etablisement' required>
+                        <mat-option [value]="etablisement._id" *ngFor="let etablisement of ListEtablissements, let i=index">{{etablisement.nom}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
