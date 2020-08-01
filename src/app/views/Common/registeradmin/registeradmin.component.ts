@@ -5,39 +5,37 @@ import { AuthService } from '../../../services/auth.service';
 import { ToasterService } from 'angular2-toaster';
 
 @Component({
-  selector: 'app-registeretab',
-  templateUrl: './registeretab.component.html',
-  styleUrls: ['./registeretab.component.css']
+  selector: 'app-registeradmin',
+  templateUrl: './registeradmin.component.html',
+  styleUrls: ['./registeradmin.component.css']
 })
-export class RegisteretabComponent implements OnInit {
+export class RegisteradminComponent implements OnInit {
 
-  RegisteretabForm: FormGroup;
+
+  RegisteradminForm: FormGroup;
   hide = true;
   constructor(private auth: AuthService,
     private router: Router,
     private toastr: ToasterService) { }
 
   ngOnInit(): void {
-    this.RegisteretabForm = new FormGroup ({
-      nom: new FormControl ('', Validators.required),
-      adresse: new FormControl ('', Validators.required),
-      telephone: new FormControl ('', Validators.required),
-      fax : new FormControl ('', Validators.required),
+    this.RegisteradminForm = new FormGroup ({
+      name: new FormControl ('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
-      logo: new FormControl ('', Validators.required),
     });
   }
-  registeretab() {
-    this.auth.Registeretab(this.RegisteretabForm.value).subscribe(
+  registeradmin() {
+    this.auth.Registeradm(this.RegisteradminForm.value).subscribe(
       () => {
         this.router.navigate(["/login"]);
         this.toastr.pop('success', 'Args Title', 'Args Body');
       },
       (err) => {
-        this.router.navigate(["/registeretab"]);
+        this.router.navigate(["/registeradmin"]);
         return this.toastr.pop('warning', 'Args Title', 'Args Body');
       }
     );
   }
 }
+

@@ -13,6 +13,11 @@ export class AuthService {
   BaseUrl = environment.baseuri;
 
   constructor(private http: HttpClient, private router: Router) { }
+  /*******************************Register Admin ********************* */
+  Registeradm(data) {
+    const url = `${this.BaseUrl}/superadmin/register`;
+    return this.http.post(url, data);
+  }
 /*******************************Register etablissement ********************* */
   Registeretab(data) {
     const url = `${this.BaseUrl}/Etablisement/register`;

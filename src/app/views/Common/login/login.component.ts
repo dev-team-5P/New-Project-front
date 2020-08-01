@@ -26,12 +26,12 @@ export class LoginComponent implements OnInit {
   this.auth.signin(this.LoginForm.value).subscribe(
     (res: any) => {
       localStorage.setItem("token", res.message);
-      this.toastr.pop('success', 'Args Title', 'Args Body');
-      this.router.navigateByUrl("/home/dashboard");
+      // this.toastr.pop('success', 'Args Title', 'Args Body');
+      this.router.navigateByUrl("/dashboard");
     },
-    (err) => {
-      return this.toastr.pop('warning', 'Args Title', 'Args Body');
-    }
+    // (err) => {
+    //   return this.toastr.pop('warning', 'Args Title', 'Args Body');
+    // }
   );
 }
 }

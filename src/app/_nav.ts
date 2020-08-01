@@ -216,6 +216,16 @@ export const navItems: INavData[] = [
         icon: 'icon-star'
       },
       {
+        name: 'Register etab',
+        url: '/registeretab',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Register admin',
+        url: '/registeradmin',
+        icon: 'icon-star'
+      },
+      {
         name: 'Error 404',
         url: '/404',
         icon: 'icon-star'

@@ -17,7 +17,7 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field class="example-full-width">
-                    <input matInput type='number' placeholder="Phone Number" formControlName='téléphone' required>
+                    <input matInput type='number' placeholder="Phone Number" formControlName='telephone' required>
                 </mat-form-field>
                 <br>
                 <mat-form-field class="example-full-width">
@@ -53,6 +53,8 @@
 
             <button [disabled]="!RegisteretabForm.valid" type="button" mat-stroked-button color="accent" class="btn-block"  (click)="registeretab()">Register</button>
             <br><br>
+            <p class="font-small grey-text d-flex justify-content-end">Iam an
+                <a routerLink="/registeradmin" class="dark-grey-text ml-1"> SuperAdmin!</a>
             <p class="font-small grey-text d-flex justify-content-end">Have an account?
                 <a routerLink="/login" class="dark-grey-text ml-1">  Log in Now!</a>
             </p>

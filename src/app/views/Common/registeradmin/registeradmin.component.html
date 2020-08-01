@@ -1,0 +1,45 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="padding: 40px;">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Register Admin</mat-card-title>
+        </mat-card-header>
+        <br><br>
+
+        <form [formGroup]="RegisteradminForm">
+
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='text' placeholder="Name" formControlName='name' required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='email' placeholder="Email" formControlName='email' required>
+                    <mat-error *ngIf="RegisteradminForm.hasError('required','email')">
+                        email is required
+                    </mat-error>
+                    <mat-error *ngIf="RegisteradminForm.hasError('email','email')">
+                        email is invalid
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='password' placeholder="Password" [type]="hide ? 'password' : 'text'"
+                        formControlName='password' required>
+                    <mat-icon matSuffix (click)="hide = !hide">
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                    <mat-error *ngIf="RegisteradminForm.hasError('required','password')">
+                        password is required
+                    </mat-error>
+                </mat-form-field>
+                <br>
+            </mat-card-content>
+
+            <button [disabled]="!RegisteradminForm.valid" type="button" mat-stroked-button color="accent" class="btn-block"  (click)="registeradmin()">Register</button>
+            <br><br>
+            <p class="font-small grey-text d-flex justify-content-end">Have an account?
+                <a routerLink="/login" class="dark-grey-text ml-1">  Log in Now!</a>
+            </p>
+        </form>
+    </mat-card>
+</div>
