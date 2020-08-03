@@ -39,7 +39,6 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/common/login/login.component';
@@ -135,6 +134,7 @@ import { from } from 'rxjs';
     ResetComponent,
     RegisteretabComponent,
     RegisteradminComponent,
+    DefaultLayoutComponent,
   ],
   providers: [{
     // provide: LocationStrategy,

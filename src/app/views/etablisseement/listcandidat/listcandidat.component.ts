@@ -4,6 +4,7 @@ import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export interface Data {
   nom: string;
@@ -24,6 +25,7 @@ export class ListcandidatComponent implements OnInit {
   @ViewChild(MatSortModule, {static: false}) sort: MatSortModule;
   displayedColumns: string[] = ['nom', 'prenon', 'email', 'phone', 'Edit', 'Delete'];
   dataSource: any;
+  isDeleted = false;
 
   constructor(private etablissementService: EtablissementService) { }
 

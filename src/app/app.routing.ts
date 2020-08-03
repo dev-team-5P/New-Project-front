@@ -12,12 +12,13 @@ import { RegisteradminComponent } from './views/common/registeradmin/registeradm
 import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
 import { from } from 'rxjs';
+import { ConnectGuardGuard } from './guards/connect-guard.guard';
 
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -79,6 +80,7 @@ export const routes: Routes = [
   {
     path: '',
     component: DefaultLayoutComponent,
+    canActivate: [ConnectGuardGuard],
     data: {
       title: 'Home'
     },
