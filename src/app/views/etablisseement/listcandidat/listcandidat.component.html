@@ -22,7 +22,7 @@
                 <!-- Name Column -->
                 <ng-container matColumnDef="prenon">
                     <mat-header-cell  mat-sort-header *matHeaderCellDef> First Name </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.prenon}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
                 </ng-container>
                 <!-- Email Column -->
                 <ng-container matColumnDef="email">
@@ -33,7 +33,7 @@
                 <!-- Tel Column -->
                 <ng-container matColumnDef="phone">
                   <mat-header-cell  mat-sort-header *matHeaderCellDef> Phone </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.telephone}} </mat-cell>
                 </ng-container>
               
                 <!-- buttons -->
@@ -48,6 +48,31 @@
                   <mat-cell *matCellDef="let element">
                     <button mat-raised-button class="btn btn-danger">Delete</button>
                   </mat-cell>
+                  <ng-template #content let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title text-danger">Delete Candidate</h4>
+                      <button
+                        type="button"
+                        class="close"
+                        aria-label="Close"
+                        (click)="closeModal()"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to delete {{element.nom}}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-outline-dark"
+                        (click)="acceptDelete(i, element._id)"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </ng-template>
                 </ng-container>
                 <!-- buttons -->
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
