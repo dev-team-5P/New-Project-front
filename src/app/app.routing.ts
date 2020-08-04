@@ -8,11 +8,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/common/login/login.component';
 import { RegisterComponent } from './views/common/register/register.component';
 import { RegisteretabComponent } from './views/common/registeretab/registeretab.component';
-<<<<<<< HEAD
 // import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
-=======
-import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
->>>>>>> c6a83023b2627d8ed6c02d54282f2a25c48a1857
 import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
 import { from } from 'rxjs';
