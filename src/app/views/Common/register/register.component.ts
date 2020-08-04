@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
     // if (this.decoded.data.role === "condidat") {
 
     //   }
-      this.superAdmin.getall().subscribe((res:any)=>{
+      this.superAdmin.getall().subscribe ((res:any)=> {
         this.ListEtablissements = res; 
       })
   }
