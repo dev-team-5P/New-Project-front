@@ -15,4 +15,8 @@ export class SuperadminService {
     const url = `${this.BaseUrl}/superadmin/getetablisement`;
     return this.http.get(url);
   }
+  deleteetab(idetab) {
+    const url = `${this.BaseUrl}/superadmin/deleteetab/${idetab}`;
+    return this.http.delete(url);
+  }
 }
