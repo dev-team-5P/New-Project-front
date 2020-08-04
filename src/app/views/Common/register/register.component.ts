@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -54,16 +53,4 @@ export class RegisterComponent implements OnInit {
       this.superAdmin.getall()
       }
   }
-=======
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-dashboard',
-  templateUrl: 'register.component.html'
-})
-export class RegisterComponent {
-
-  constructor() { }
-
->>>>>>> 4848802e2f79438afb79f48a821ea5e7f0445872
 }
