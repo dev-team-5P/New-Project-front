@@ -52,7 +52,7 @@ export class ListetablissementComponent implements OnInit {
     searchstring = searchstring.toLowerCase();
     this.dataSource.filter = searchstring;
   }
-// Delete Employee
+// Delete etablissement
 deleteEtab(idetab) {
   this.adminservice.deleteetab(idetab).subscribe(() => {
     this.dataSource.data = this.dataSource.data.filter(i => i !== idetab)
