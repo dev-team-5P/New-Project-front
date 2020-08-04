@@ -41,7 +41,8 @@
                   <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
                   <mat-cell *matCellDef="let element">
                     <button mat-raised-button class="btn btn-info" type="button" 
-                    routerLink="./updatecandidat/{{element._id}}">Edit</button>
+                    routerLink="/etablissement/updatecandidat/{{element._id}}">Edit</button>
+                    <!-- /{{element._id}} -->
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="Delete">
