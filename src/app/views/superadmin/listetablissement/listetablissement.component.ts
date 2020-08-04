@@ -43,7 +43,7 @@ export class ListetablissementComponent implements OnInit {
         console.log(this.dataSource.data);  
       },  
       error => {  
-        console.log('There was an error while retrieving Albums !!!' + error);  
+        console.log('There was an error while retrieving data !!!' + error);  
       });  
   }  
 
