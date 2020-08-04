@@ -55,7 +55,6 @@ export class ListetablissementComponent implements OnInit {
 // Delete etablissement
 deleteEtab(idetab) {
   this.adminservice.deleteetab(idetab).subscribe(() => {
-    this.dataSource.data = this.dataSource.data.filter(i => i !== idetab)
     this.getalletab();
   });
   }
