@@ -52,7 +52,7 @@ export class ListcandidatComponent implements OnInit {
     this.dataSource.filter = searchstring;
   }
   // tslint:disable-next-line: use-lifecycle-interface
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
+  // ngAfterViewInit() {
+  //   this.dataSource.sort = this.sort;
+  // }
 }
