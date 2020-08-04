@@ -9,11 +9,10 @@ export class SuperadminService {
   BaseUrl = environment.baseuri;
   token = localStorage.getItem('token');
   constructor(private http: HttpClient, private router: Router) { }
-  
   getall() {
     // tslint:disable-next-line: no-shadowed-variable
     // const queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
     const url = `${this.BaseUrl}/superadmin/getetablisement`;
-    return this.http.get<any[]>(url);
+    return this.http.get(url);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SuperadminService } from '../../../services/superadmin.service';
 import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
@@ -29,14 +29,14 @@ export class ListetablissementComponent implements OnInit {
 
   ngOnInit(): void {
     this.getalletab();
-    
+
   }
   // ************* get all etabllisement for superAdmin*******//
   getalletab() {  
     this.adminservice.getall()  
       .subscribe(  
       res => {  
-        this.dataSource = new MatTableDataSource(res);  
+        this.dataSource = new MatTableDataSource();  
         this.dataSource.data = res;   
         this.dataSource.sort = this.sort;  
         this.dataSource.paginator = this.paginator;  
@@ -47,10 +47,9 @@ export class ListetablissementComponent implements OnInit {
       });  
   }  
 
-  Filter(searchstring:string)  
-  {  
-    searchstring = searchstring.trim();   
-    searchstring = searchstring.toLowerCase();  
-    this.dataSource.filter = searchstring;  
+  Filter(searchstring: string) {
+    searchstring = searchstring.trim();
+    searchstring = searchstring.toLowerCase();
+    this.dataSource.filter = searchstring;
   }
 }

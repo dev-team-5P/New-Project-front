@@ -21,7 +21,7 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field class="example-full-width">
-                    <input matInput type='number' placeholder="Phone Number" formControlName='téléphone' required>
+                    <input matInput type='number' placeholder="Phone Number" formControlName='telephone' required>
                 </mat-form-field>
                 <br>
                 <mat-form-field class="example-full-width">
@@ -47,8 +47,8 @@
                 <br>
                 <mat-form-field class="example-full-width">
                     <mat-label>Choose an Etablissement...</mat-label>
-                    <mat-select [(value)]="selected" type='text' formControlName='etablisement' required>
-                        <mat-option [value]="etablisement" *ngFor="let etablisement of Roles">{{etablisement}}
+                    <mat-select type='text' formControlName='etablisement' required>
+                        <mat-option [value]="etablisement._id" *ngFor="let etablisement of ListEtablissements, let i=index">{{etablisement.nom}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>

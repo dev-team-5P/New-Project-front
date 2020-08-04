@@ -13,14 +13,24 @@ export class AuthService {
   BaseUrl = environment.baseuri;
 
   constructor(private http: HttpClient, private router: Router) { }
+  /*******************************Register Admin ********************* */
+  Registeradm(data) {
+    const url = `${this.BaseUrl}/superadmin/register`;
+    return this.http.post(url, data);
+  }
 /*******************************Register etablissement ********************* */
   Registeretab(data) {
     const url = `${this.BaseUrl}/Etablisement/register`;
     return this.http.post(url, data);
   }
+
+  upload(data, id) {
+    const url = `${this.BaseUrl}/uploadimg/${id}`;
+    return this.http.put(url, data);
+  }
   /*******************************Register canndidate ********************* */
-  Register(data) {
-    const url = `${this.BaseUrl}/Condidat/register`;
+  Register(j, data) {
+    const url = `${this.BaseUrl}/Condidat/${j}/register`;
     return this.http.post(url, data);
   }
 /*******************************Login********************* */

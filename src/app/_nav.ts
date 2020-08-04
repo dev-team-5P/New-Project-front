@@ -19,6 +19,28 @@ export const navItems: INavData[] = [
     ],
   },
   {
+    name: 'Etablissement',
+    url: '/etablissemnt',
+    icon: 'icon-star',
+    children: [
+      {
+        name: 'Add candidat',
+        url: '/etablissement/addcandidat',
+        icon: 'icon-star',
+      },
+      {
+        name: 'List candidat',
+        url: '/etablissement/listcandidat',
+        icon: 'icon-star',
+      },
+      {
+        name: 'Update candidat',
+        url: '/etablissement/updatecandidat',
+        icon: 'icon-star',
+      },
+    ],
+  },
+  {
     title: true,
     name: 'Components'
   },
@@ -191,6 +213,16 @@ export const navItems: INavData[] = [
       {
         name: 'Register',
         url: '/register',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Register etab',
+        url: '/registeretab',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Register admin',
+        url: '/registeradmin',
         icon: 'icon-star'
       },
       {

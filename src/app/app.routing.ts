@@ -8,15 +8,17 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/common/login/login.component';
 import { RegisterComponent } from './views/common/register/register.component';
 import { RegisteretabComponent } from './views/common/registeretab/registeretab.component';
+import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
 import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
 import { from } from 'rxjs';
+import { ConnectGuardGuard } from './guards/connect-guard.guard';
 
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -55,6 +57,13 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'registeradmin',
+    component: RegisteradminComponent,
+    data: {
+      title: 'Register Page',
+    },
+  },
+  {
     path: 'forget',
     component: ForgetComponent,
     data: {
@@ -71,22 +80,30 @@ export const routes: Routes = [
   {
     path: '',
     component: DefaultLayoutComponent,
+    canActivate: [ConnectGuardGuard],
     data: {
       title: 'Home'
     },
     children: [
       {
-        path: "dashboard",
+        path: 'dashboard',
         loadChildren: () =>
-          import("./views/dashboard/dashboard.module").then(
+          import('./views/dashboard/dashboard.module').then(
             (m) => m.DashboardModule
           ),
       },
       {
-        path: "superadmin",
+        path: 'superadmin',
         loadChildren: () =>
-          import("./views/superadmin/superadmin.module").then(
+          import('./views/superadmin/superadmin.module').then(
             (m) => m.SuperadminModule
+          ),
+      },
+      {
+        path: 'etablissement',
+        loadChildren: () =>
+          import('./views/etablisseement/etablissement.module').then(
+            (m) => m.EtablissementModule
           ),
       },
       {

@@ -4,7 +4,6 @@ import { ListetablissementComponent } from './listetablissement/listetablissemen
 
 
 
-
 const routes: Routes = [
     {
         path: '',
@@ -82,7 +81,7 @@ const routes: Routes = [
             },
 
 
-        ];;
+        ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
