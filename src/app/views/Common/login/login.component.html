@@ -1,0 +1,215 @@
+<!-- <div class="app-body">
+    <main class="main d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card-group">
+                        <div class="card">
+                            <section class="form-gradient">
+                                <div class="card">
+
+
+                                    <div class="header pt-3 peach-gradient">
+
+                                        <div class="row d-flex justify-content-center">
+                                            <h3 class="white-text mb-3 pt-3 font-weight-bold">Log in</h3>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mx-4 mt-4">
+                                            <form [formGroup]="LoginForm">
+                                                <mat-form-field class="full-width">
+                                                    <mat-label>Email</mat-label>
+                                                    <input matInput placeholder="email" formControlName="email"
+                                                        required />
+                                                    <mat-error *ngIf="LoginForm.hasError('required','email')">
+                                                        email is required
+                                                    </mat-error>
+                                                    <mat-error *ngIf="LoginForm.hasError('email','email')">
+                                                        email is invalid
+                                                    </mat-error>
+                                                </mat-form-field>
+                                                <br />
+                                                <mat-form-field class="full-width">
+                                                    <mat-label>Password</mat-label>
+                                                    <input matInput type="password" placeholder="password"
+                                                        formControlName="password" [type]="hide ? 'password' : 'text'"
+                                                        required />
+                                                    <mat-icon matSuffix (click)="hide = !hide">
+                                                        {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                    <mat-error *ngIf="LoginForm.hasError('required','password')">
+                                                        password is required
+                                                    </mat-error>
+                                                </mat-form-field>
+                                                <div class="row">
+                                                    <div class="col-6"></div>
+                                                    <div class="col-6">
+                                                        <button type="button" class="btn btn-link" routerLink="/forget">
+                                                            Forgot password?
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="row d-flex align-items-center mb-4">
+                                                <div class="col-md-1 col-md-5 d-flex align-items-start">
+                                                    <div class="text-center">
+                                                        <button type="button" [disabled]="!LoginForm.valid" mdbBtn
+                                                            color="grey" rounded="true" class="z-depth-1a waves-light"
+                                                            mdbWavesEffect (click)="login()">Log in</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <p class="font-small grey-text d-flex justify-content-end mt-3">
+                                                        Don't have an account?
+                                                        <a routerLink="/register"
+                                                            class="dark-grey-text ml-1 font-weight-bold"> Sign up</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div> -->
+<!-- <div class="app-body">
+    <main class="main d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <div class="card-group">
+              <div class="card">
+                <div class="card-body">
+                  <h1>Login</h1>
+                  <p class="text-muted">Sign In to your account</p>
+                  <form [formGroup]="LoginForm">
+                    <mat-form-field class="full-width">
+                      <mat-label>Email</mat-label>
+                      <input
+                        matInput
+                        placeholder="email"
+                        formControlName="email"
+                        required
+                      />
+                      <mat-error *ngIf="LoginForm.hasError('required','email')">
+                        email is required
+                      </mat-error>
+                      <mat-error *ngIf="LoginForm.hasError('email','email')">
+                        email is invalid
+                      </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="full-width">
+                      <mat-label>Password</mat-label>
+                      <input
+                        matInput
+                        type="password"
+                        placeholder="password"
+                        formControlName="password"
+                        [type]="hide ? 'password' : 'text'"
+                        required
+                      />
+                      <mat-icon matSuffix (click)="hide = !hide"
+                        >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon
+                      >
+                      <mat-error
+                        *ngIf="LoginForm.hasError('required','password')"
+                      >
+                        password is required
+                      </mat-error>
+                    </mat-form-field>
+                    <div class="row">
+                      <div class="col-6"></div>
+                      <div class="col-6">
+                        <button
+                          type="button"
+                          class="btn btn-link"
+                          routerLink="/forget"
+                        >
+                          Forgot password?
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <button
+                  [disabled]="!LoginForm.valid"
+                  type="button"
+                  class="btn btn-primary px-4"
+                  (click)="login()"
+                >
+                  Login
+                </button>
+              </div>
+              <div
+                class="card text-white bg-primary py-5 d-md-down-none"
+                style="width: 44%;"
+              >
+                <div class="card-body text-center">
+                  <div>
+                    <h2>Sign up</h2>
+                    <button
+                      type="button"
+                      routerLink="/register"
+                      class="btn btn-primary active mt-3"
+                    >
+                      Register Now!
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div> -->
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="padding: 40px;" >
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+    <br><br>
+    <form [formGroup]="LoginForm">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <!-- <input matInput placeholder="Email"> -->
+          <input matInput placeholder="Email" formControlName="email" required />
+          <mat-error *ngIf="LoginForm.hasError('required','email')">
+            email is required
+          </mat-error>
+          <mat-error *ngIf="LoginForm.hasError('email','email')">
+            email is invalid
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type='password' placeholder="Password" formControlName="password"
+            [type]="hide ? 'password' : 'text'" required>
+          <mat-icon matSuffix (click)="hide = !hide">
+            {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="LoginForm.hasError('required','password')">
+            password is required
+          </mat-error>
+        </mat-form-field>
+        <p class="font-small grey-text d-flex justify-content-end">Forgot
+          <a routerLink="/forget" class="dark-grey-text ml-1"> Password?</a>
+        </p>
+      </mat-card-content>
+      <br><br>
+      <button [disabled]="!LoginForm.valid" type="button" mat-stroked-button color="accent" class="btn-block"
+        (click)="login()">Log in</button>
+      <br><br>
+      <p class="font-small grey-text d-flex justify-content-end">Don't have an account?
+        <a routerLink="/register" class="dark-grey-text ml-1">  Register Now!</a>
+      </p>
+    </form>
+  </mat-card>
+</div>

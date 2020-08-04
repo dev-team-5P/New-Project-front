@@ -1,0 +1,74 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="padding: 40px;">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Register Etablissement</mat-card-title>
+        </mat-card-header>
+        <br><br>
+
+        <form [formGroup]="RegisteretabForm">
+
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='text' placeholder="Name Etablissement" formControlName='nom' required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='text' placeholder="Adress" formControlName='adresse' required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='number' placeholder="Phone Number" formControlName='telephone' required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='number' placeholder="Fax" formControlName='fax' required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='email' placeholder="Email" formControlName='email' required>
+                    <mat-error *ngIf="RegisteretabForm.hasError('required','email')">
+                        email is required
+                    </mat-error>
+                    <mat-error *ngIf="RegisteretabForm.hasError('email','email')">
+                        email is invalid
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type='password' placeholder="Password" [type]="hide ? 'password' : 'text'"
+                        formControlName='password' required>
+                    <mat-icon matSuffix (click)="hide = !hide">
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                    <mat-error *ngIf="RegisteretabForm.hasError('required','password')">
+                        password is required
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <!-- <mat-form-field class="example-full-width">
+                    <input matInput type='text' placeholder="Logo" formControlName='logo' required>
+                </mat-form-field>
+                <br> -->
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="file-input"
+                      >Etablissement Logo</label
+                    >
+                    <div class="col-md-9">
+                      <input
+                        type="file"
+                        id="file-input"
+                        (change)="onFileChange($event)"
+                        name="file-input"
+                      />
+                    </div>
+                  </div>
+            </mat-card-content>
+
+            <button [disabled]="!RegisteretabForm.valid" type="button" mat-stroked-button color="accent" class="btn-block"  (click)="registeretab()">Register</button>
+            <br><br>
+            <p class="font-small grey-text d-flex justify-content-end">Have an account?
+                <a routerLink="/login" class="dark-grey-text ml-1">  Log in Now!</a>
+            </p>
+        </form>
+    </mat-card>
+</div>
