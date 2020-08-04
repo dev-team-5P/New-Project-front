@@ -39,6 +39,7 @@ export class ListetablissementComponent implements OnInit {
         this.dataSource = new MatTableDataSource();
         this.dataSource.data = res;
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
         console.log(this.dataSource.data);
       },
       error => {
@@ -53,6 +54,6 @@ export class ListetablissementComponent implements OnInit {
   }
   // tslint:disable-next-line: use-lifecycle-interface
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+    // this.dataSource.sort = this.sort;
   }
 }
