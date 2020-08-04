@@ -52,4 +52,11 @@ export class ListetablissementComponent implements OnInit {
     searchstring = searchstring.toLowerCase();
     this.dataSource.filter = searchstring;
   }
+// Delete Employee
+deleteEtab(idetab) {
+  this.adminservice.deleteetab(idetab).subscribe(() => {
+    this.dataSource.data = this.dataSource.data.filter(i => i !== idetab)
+    this.getalletab();
+  });
+  }
 }
