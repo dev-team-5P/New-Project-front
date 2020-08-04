@@ -13,6 +13,6 @@ export class SuperadminService {
     // tslint:disable-next-line: no-shadowed-variable
     // const queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
     const url = `${this.BaseUrl}/superadmin/getetablisement`;
-    return this.http.get<any[]>(url);
+    return this.http.get(url);
   }
 }
