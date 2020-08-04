@@ -1,1 +1,89 @@
 <p>update-candidat works!</p>
+<div class="app-body">
+    <main class="main d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card mx-4">
+              <div class="card-body p-4">
+                <form [formGroup]=" updateCandForm">
+                  <h1>Update Candidate</h1>
+  
+                  <div class="input-group mb-3">
+                    <mat-form-field class="full-width">
+                      <input
+                        type="text"
+                        matInput
+                        formControlName="nom"
+                        placeholder="First Name"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="input-group mb-3">
+                    <mat-form-field class="full-width">
+                      <input
+                        type="text"
+                        matInput
+                        formControlName="prenom"
+                        placeholder="Last Name"
+
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="input-group mb-3">
+                    <mat-form-field class="full-width">
+                      <input
+                        type="text"
+                        matInput
+                        formControlName="adresse"
+                        placeholder="Adresse"
+
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="input-group mb-3">
+                    <mat-form-field class="full-width">
+                      <input
+                        type="text"
+                        matInput
+                        formControlName="telephone"
+                        placeholder="Phone"
+
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="input-group mb-3">
+                    <mat-form-field class="full-width">
+                      <input
+                        type="text"
+                        matInput
+                        formControlName="email"
+                        placeholder="Email"
+                      />
+                      <mat-error *ngIf="updateCandForm.hasError('required','email')">
+                        email is required
+                      </mat-error>
+                      <mat-error *ngIf="updateCandForm.hasError('email','email')">
+                        email is invalid
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+  
+                  <div class="input-group mb-3">
+                  </div>
+                </form>
+              </div>
+              <button
+                type="button"
+                class="btn btn-block btn-success"
+                (click)=" updatecand()"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
