@@ -22,6 +22,12 @@ export class EtablissementService {
     const url = `${this.BaseUrl}/Etablisement/getcondidat`;
     return this.http.get<any[]>(url);
   }
+
+  getcandById(id) {
+    const url = `${this.BaseUrl}/user/${id}`;
+    return this.http.get(url);
+  }
+
   updatecand(id, data) {
     const url = `${this.BaseUrl}/Etablisement/updatecondidat/${id}`;
     return this.http.put(url, data);
