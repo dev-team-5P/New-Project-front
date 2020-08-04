@@ -3,7 +3,10 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { ToasterService } from 'angular2-toaster';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4848802e2f79438afb79f48a821ea5e7f0445872
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,10 +14,17 @@ import { ToasterService } from 'angular2-toaster';
 })
 export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
+<<<<<<< HEAD
   hide = true;
   constructor(    private auth: AuthService,
     private router: Router,
     private toastr: ToasterService) { }
+=======
+  constructor(
+    private toasterService: ToasterService,
+    private router: Router,
+    private auth: AuthService ) { }
+>>>>>>> 4848802e2f79438afb79f48a821ea5e7f0445872
 
   ngOnInit(): void {
     this.LoginForm = new FormGroup({
@@ -22,6 +32,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required),
     });
   }
+<<<<<<< HEAD
   login() {
   this.auth.signin(this.LoginForm.value).subscribe(
     (res: any) => {
@@ -35,3 +46,18 @@ export class LoginComponent implements OnInit {
   );
 }
 }
+=======
+
+  login() {
+    this.toasterService.pop('success', 'Args Title', 'Args Body');
+    // this.auth.signin(this.LoginForm.value).subscribe(
+    //   (res: any) => {
+    //     // this.toastr.success('Connected Successfully');
+    //     this.router.navigateByUrl('/home/dashboard');
+    //   },
+    // );
+  }
+}
+
+
+>>>>>>> 4848802e2f79438afb79f48a821ea5e7f0445872
