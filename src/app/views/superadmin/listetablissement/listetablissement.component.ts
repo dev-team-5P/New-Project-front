@@ -20,9 +20,11 @@ const ELEMENT_DATA: Data[] = [
   styleUrls: ['./listetablissement.component.css']
 })
 export class ListetablissementComponent implements OnInit {
-  dataSource: any; ;
-  displayedColumns : string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit','Delete'];
+  dataSource: any;
+  displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
+  // tslint:disable-next-line: no-trailing-whitespace
   @ViewChild(MatPaginator) paginator: MatPaginator;  
+
   @ViewChild(MatSort, { static: true }) sort: MatSort; 
   
   constructor(private adminservice: SuperadminService,private router: Router) { }
@@ -32,20 +34,20 @@ export class ListetablissementComponent implements OnInit {
 
   }
   // ************* get all etabllisement for superAdmin*******//
-  getalletab() {  
-    this.adminservice.getall()  
-      .subscribe(  
-      res => {  
-        this.dataSource = new MatTableDataSource();  
-        this.dataSource.data = res;   
-        this.dataSource.sort = this.sort;  
-        this.dataSource.paginator = this.paginator;  
-        console.log(this.dataSource.data);  
-      },  
-      error => {  
-        console.log('There was an error while retrieving data !!!' + error);  
-      });  
-  }  
+  getalletab() {
+    this.adminservice.getall()
+      .subscribe(
+      res => {
+        this.dataSource = new MatTableDataSource();
+        this.dataSource.data = res;
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        console.log(this.dataSource.data);
+      },
+      error => {
+        console.log('There was an error while retrieving data !!!' + error);
+      });
+  }
 
   Filter(searchstring: string) {
     searchstring = searchstring.trim();
