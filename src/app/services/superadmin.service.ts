@@ -19,6 +19,14 @@ export class SuperadminService {
     const url = `${this.BaseUrl}/superadmin/deleteetab/${idetab}`;
     return this.http.delete(url);
   }
+  parametrageducompte(id, data) {
+    const url = `${this.BaseUrl}/superadmin/Parametrage/${id}`;
+    return this.http.put(url, data);
+  }
+  modifPassadmin(id, data) {
+    const url = `${this.BaseUrl}/superadmin/changepass/${id}`;
+    return this.http.put(url, data);
+  }
   /********************get etabli By Id************* */
   getetabliById(idetab) {
     const url = `${this.BaseUrl}/superadmin/${idetab}`;

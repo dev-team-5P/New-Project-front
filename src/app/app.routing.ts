@@ -8,11 +8,12 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/common/login/login.component';
 import { RegisterComponent } from './views/common/register/register.component';
 import { RegisteretabComponent } from './views/common/registeretab/registeretab.component';
-import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
+// import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
 import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
 import { from } from 'rxjs';
 import { ConnectGuardGuard } from './guards/connect-guard.guard';
+
 
 
 export const routes: Routes = [
@@ -56,13 +57,13 @@ export const routes: Routes = [
       title: 'Register Page',
     },
   },
-  {
-    path: 'registeradmin',
-    component: RegisteradminComponent,
-    data: {
-      title: 'Register Page',
-    },
-  },
+  // {
+  //   path: 'registeradmin',
+  //   component: RegisteradminComponent,
+  //   data: {
+  //     title: 'Register Page',
+  //   },
+  // },
   {
     path: 'forget',
     component: ForgetComponent,
@@ -77,6 +78,13 @@ export const routes: Routes = [
       title: 'Page reset',
     },
   },
+  // {
+  //   path: 'Setting',
+  //   component: ParametrageComponent,
+  //   data: {
+  //     title: 'Page Setting'
+  //   }
+  // },
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -105,6 +113,10 @@ export const routes: Routes = [
           import('./views/etablisseement/etablissement.module').then(
             (m) => m.EtablissementModule
           ),
+      },
+      {
+        path: 'Setting',
+        loadChildren: () => import('./views/parametrage/parametrage.module').then((m => m.ParametrageModule))
       },
       {
         path: 'candidat',
