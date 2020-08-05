@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
   RegisterForm: FormGroup;
   hide = true;
   ListEtablissements ;
-  decoded = jwt_decode(this.superAdmin.token); 
 
   constructor(private auth: AuthService,
     private router: Router,

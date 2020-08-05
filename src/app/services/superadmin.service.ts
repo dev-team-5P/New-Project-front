@@ -25,7 +25,7 @@ export class SuperadminService {
     return this.http.get(url);
   }
   /******************update etabli*************** */
-  updatesociete(id, data) {
+  updateEtabli(id, data) {
     const url = `${this.BaseUrl}/Etablisement/updatesuper/${id}`;
     return this.http.put(url, data);
   }

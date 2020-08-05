@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export interface Data {
   nom: string;
   adresse: string;
-  tel: number;
+  telephone: number;
   fax: number;
 }
 
@@ -21,7 +21,7 @@ const ELEMENT_DATA: Data[] = [
 })
 export class ListetablissementComponent implements OnInit {
   dataSource: any; ;
-  displayedColumns : string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit','Delete'];
+  displayedColumns : string[] = ['nom', 'adresse', 'telephone', 'fax', 'Edit','Delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;  
   @ViewChild(MatSort, { static: true }) sort: MatSort; 
   
