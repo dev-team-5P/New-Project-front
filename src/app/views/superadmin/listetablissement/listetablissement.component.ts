@@ -40,7 +40,6 @@ export class ListetablissementComponent implements OnInit {
         this.dataSource.data = res;   
         this.dataSource.sort = this.sort;  
         this.dataSource.paginator = this.paginator;  
-        console.log(this.dataSource.data);  
       },  
       error => {  
         console.log('There was an error while retrieving data !!!' + error);  
