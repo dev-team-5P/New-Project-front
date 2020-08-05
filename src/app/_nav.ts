@@ -36,6 +36,11 @@ export const navItems: INavData[] = [
     ],
   },
   {
+    name: 'Setting',
+    url: '/Setting',
+    icon: 'icon-star',
+  },
+  {
     title: true,
     name: 'Components'
   },

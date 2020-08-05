@@ -15,6 +15,7 @@ import { from } from 'rxjs';
 import { ConnectGuardGuard } from './guards/connect-guard.guard';
 
 
+
 export const routes: Routes = [
   {
     path: '',
@@ -77,6 +78,13 @@ export const routes: Routes = [
       title: 'Page reset',
     },
   },
+  // {
+  //   path: 'Setting',
+  //   component: ParametrageComponent,
+  //   data: {
+  //     title: 'Page Setting'
+  //   }
+  // },
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -105,6 +113,10 @@ export const routes: Routes = [
           import('./views/etablisseement/etablissement.module').then(
             (m) => m.EtablissementModule
           ),
+      },
+      {
+        path: 'Setting',
+        loadChildren: () => import('./views/parametrage/parametrage.module').then((m => m.ParametrageModule))
       },
       {
         path: 'base',
