@@ -27,6 +27,7 @@ const routes: Routes = [
                         }
                     },
                     {
+                        // path: 'updatecandidat',
                         path: 'updatecandidat/:id',
                         component: UpdateCandidatComponent,
                         data: {

@@ -40,14 +40,13 @@
                 <ng-container matColumnDef="Edit">
                   <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
                   <mat-cell *matCellDef="let element">
-                    <button mat-raised-button class="btn btn-info" type="button" 
-                    routerLink="/etablissement/updatecandidat/{{element._id}}">Edit</button>
-                    <!-- /{{element._id}} -->
+                    <button mat-raised-button class="btn btn-info">Edit</button>
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="Delete">
                   <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
                   <mat-cell *matCellDef="let element">
+
                     <button mat-raised-button class="btn btn-danger" (click)="deleteCand(element._id)">Delete</button>
                   </mat-cell>
                   <!-- <ng-template #content let-modal>

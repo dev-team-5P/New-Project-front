@@ -3,8 +3,10 @@ import { SuperadminService } from '../../../services/superadmin.service';
 import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+
 import {  MatSort, } from '@angular/material/sort';
 import { Router } from '@angular/router';
+
 export interface Data {
   nom: string;
   adresse: string;
@@ -20,6 +22,7 @@ const ELEMENT_DATA: Data[] = [
   styleUrls: ['./listetablissement.component.css']
 })
 export class ListetablissementComponent implements OnInit {
+
   dataSource: any;
   displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
   // tslint:disable-next-line: no-trailing-whitespace
@@ -28,6 +31,7 @@ export class ListetablissementComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort; 
   
   constructor(private adminservice: SuperadminService,private router: Router) { }
+
 
   ngOnInit(): void {
     this.getalletab();
@@ -54,11 +58,9 @@ export class ListetablissementComponent implements OnInit {
     searchstring = searchstring.toLowerCase();
     this.dataSource.filter = searchstring;
   }
-// Delete etablissement
-deleteEtab(idetab) {
-  this.adminservice.deleteetab(idetab).subscribe(() => {
-    this.getalletab();
-  });
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
   editEtabli(id) {
     this.router.navigate([`/superadmin/updateetablissement/${id}`]);
