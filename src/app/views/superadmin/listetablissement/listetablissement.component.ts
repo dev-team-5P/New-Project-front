@@ -4,7 +4,7 @@ import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {  MatSort, } from '@angular/material/sort';
-
+import { Router } from '@angular/router';
 export interface Data {
   nom: string;
   adresse: string;
@@ -24,9 +24,10 @@ export class ListetablissementComponent implements OnInit {
   displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
   // tslint:disable-next-line: no-trailing-whitespace
   @ViewChild(MatPaginator) paginator: MatPaginator;  
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private adminservice: SuperadminService, ) { }
+  @ViewChild(MatSort, { static: true }) sort: MatSort; 
+  
+  constructor(private adminservice: SuperadminService,private router: Router) { }
 
   ngOnInit(): void {
     this.getalletab();
@@ -59,4 +60,7 @@ deleteEtab(idetab) {
     this.getalletab();
   });
   }
+  editEtabli(id) {
+    this.router.navigate([`/superadmin/updateetablissement/${id}`]);
+    }
 }
