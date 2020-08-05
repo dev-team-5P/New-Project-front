@@ -11,6 +11,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { SuperadminRoutingModule } from './superadmin-routing.module';
 import { ListetablissementComponent } from './listetablissement/listetablissement.component';
 import {MatTableModule} from '@angular/material/table';
+import { UpdateetablissementComponent } from './updateetablissement/updateetablissement.component';
 
 @NgModule({
 
@@ -29,6 +30,7 @@ import {MatTableModule} from '@angular/material/table';
   ],
   declarations: [
     ListetablissementComponent,
+    UpdateetablissementComponent,
   ],
 })
 export class SuperadminModule { }
