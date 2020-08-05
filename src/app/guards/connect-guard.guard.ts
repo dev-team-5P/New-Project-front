@@ -15,9 +15,9 @@ export class ConnectGuardGuard implements CanActivate {
       this.router.navigateByUrl('/login');
       return false;
     }
-    {
+    
       return true;
-    }
+    
   }
 
 }

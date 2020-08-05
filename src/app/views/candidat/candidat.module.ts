@@ -8,17 +8,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { SuperadminRoutingModule } from './superadmin-routing.module';
-import { ListetablissementComponent } from './listetablissement/listetablissement.component';
+import { CandidatRoutingModule } from './candidat-routing.module';
+import { CandidatComponent } from './candidat.component';
 import {MatTableModule} from '@angular/material/table';
-import { UpdateetablissementComponent } from './updateetablissement/updateetablissement.component';
 
 @NgModule({
 
   imports: [
     CommonModule,
     FormsModule,
-    SuperadminRoutingModule,
+    CandidatRoutingModule,
     ReactiveFormsModule,
     MatIconModule,
     MatPaginatorModule,
@@ -29,8 +28,7 @@ import { UpdateetablissementComponent } from './updateetablissement/updateetabli
     MatTableModule,
   ],
   declarations: [
-    ListetablissementComponent,
-    UpdateetablissementComponent,
+    CandidatComponent,
   ],
 })
-export class SuperadminModule { }
+export class CandidatModule { }

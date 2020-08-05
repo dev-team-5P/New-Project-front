@@ -51,8 +51,10 @@ export class ListcandidatComponent implements OnInit {
     searchstring = searchstring.toLowerCase();
     this.dataSource.filter = searchstring;
   }
-  // tslint:disable-next-line: use-lifecycle-interface
-  // ngAfterViewInit() {
-  //   this.dataSource.sort = this.sort;
-  // }
-}
+
+  deleteCand(id) {
+    this.etablissementService.deletecand(id).subscribe(() => {
+      this.getallcand();
+    });
+    }
+  }

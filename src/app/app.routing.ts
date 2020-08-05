@@ -119,6 +119,13 @@ export const routes: Routes = [
         loadChildren: () => import('./views/parametrage/parametrage.module').then((m => m.ParametrageModule))
       },
       {
+        path: 'candidat',
+        loadChildren: () =>
+          import('./views/candidat/candidat.module').then(
+            (m) => m.CandidatModule
+          ),
+      },
+      {
         path: 'base',
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
       },

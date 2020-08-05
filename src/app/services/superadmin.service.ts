@@ -27,4 +27,14 @@ export class SuperadminService {
     const url = `${this.BaseUrl}/superadmin/changepass/${id}`;
     return this.http.put(url, data);
   }
+  /********************get etabli By Id************* */
+  getetabliById(idetab) {
+    const url = `${this.BaseUrl}/superadmin/${idetab}`;
+    return this.http.get(url);
+  }
+  /******************update etabli*************** */
+  updatesociete(id, data) {
+    const url = `${this.BaseUrl}/Etablisement/updatesuper/${id}`;
+    return this.http.put(url, data);
+  }
 }

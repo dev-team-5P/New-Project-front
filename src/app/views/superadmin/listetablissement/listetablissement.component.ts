@@ -3,7 +3,10 @@ import { SuperadminService } from '../../../services/superadmin.service';
 import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatSortModule} from '@angular/material/sort';
+
+import {  MatSort, } from '@angular/material/sort';
+import { Router } from '@angular/router';
+
 export interface Data {
   nom: string;
   adresse: string;
@@ -19,13 +22,16 @@ const ELEMENT_DATA: Data[] = [
   styleUrls: ['./listetablissement.component.css']
 })
 export class ListetablissementComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSortModule, {static: false}) sort: MatSortModule;
-  displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
+
   dataSource: any;
+  displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
+  // tslint:disable-next-line: no-trailing-whitespace
+  @ViewChild(MatPaginator) paginator: MatPaginator;  
 
+  @ViewChild(MatSort, { static: true }) sort: MatSort; 
+  
+  constructor(private adminservice: SuperadminService,private router: Router) { }
 
-  constructor(private adminservice: SuperadminService, ) { }
 
   ngOnInit(): void {
     this.getalletab();
@@ -38,6 +44,7 @@ export class ListetablissementComponent implements OnInit {
       res => {
         this.dataSource = new MatTableDataSource();
         this.dataSource.data = res;
+        this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
         console.log(this.dataSource.data);
       },
@@ -55,4 +62,7 @@ export class ListetablissementComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
+  editEtabli(id) {
+    this.router.navigate([`/superadmin/updateetablissement/${id}`]);
+    }
 }
