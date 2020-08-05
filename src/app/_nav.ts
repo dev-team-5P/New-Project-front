@@ -36,6 +36,11 @@ export const navItems: INavData[] = [
     ],
   },
   {
+    name: 'Candidat',
+    url: '/candidat',
+    icon: 'icon-speedometer',
+  },
+  {
     title: true,
     name: 'Components'
   },

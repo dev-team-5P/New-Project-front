@@ -20,7 +20,7 @@ export class EtablissementService {
 
   getallcand() {
     const url = `${this.BaseUrl}/Etablisement/getcondidat`;
-    return this.http.get<any[]>(url);
+    return this.http.get(url);
   }
 
   getcandById(id) {
