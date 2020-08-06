@@ -34,7 +34,7 @@ export class UpdateetablissementComponent implements OnInit {
     });
   }
     /******************update pme by id *********** */
-    updatePmeById() {
+    updateEtabById() {
       this.adminservice
         .updateEtabli(this.Id, this.etabliUpdateform.value)
         .subscribe(() => {

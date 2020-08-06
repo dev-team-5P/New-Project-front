@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { ToasterService } from 'angular2-toaster';
+import {ToasterService,} from 'angular2-toaster';
 
 @Component({
   selector: 'app-register',
@@ -10,13 +10,14 @@ import { ToasterService } from 'angular2-toaster';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  
   RegisterForm: FormGroup;
   hide = true;
   ListEtablissements ;
-  constructor(private auth: AuthService,
+
+  constructor(
+    private auth: AuthService,
     private router: Router,
-    private toastr: ToasterService) { }
+    private toasterService: ToasterService) { }
     
 
   ngOnInit(): void {
@@ -36,12 +37,12 @@ export class RegisterComponent implements OnInit {
   register() {
     this.auth.Register(this.RegisterForm.value.etablisement, this.RegisterForm.value).subscribe(
       () => {
+        this.toasterService.pop('success', 'success', 'Welcom back');
         this.router.navigate(["/login"]);
-        //this.toastr.pop('success', 'Args Title', 'Args Body');
       },
       (err) => {
+        this.toasterService.pop('error', 'Erreur', 'something wrong');
         this.router.navigate(["/register"]);
-        //return this.toastr.pop('warning', 'Args Title', 'Args Body');
       }
     );
   }
