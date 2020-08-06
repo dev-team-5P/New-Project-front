@@ -12,7 +12,7 @@ export class SidebarService {
   role: string;
   decoded: any;
   private navItems = navItems;
-  constructor() { 
+  constructor() {
     this.items$ = this.getNavItemsByRole();
   }
   getNavItemsByRole(): Observable<INavData[]> {
@@ -34,7 +34,7 @@ export class SidebarService {
       return of(filtredItems);
     }
     if (this.role === 'etablisement') {
-      const filtredItems = navItems.filter((item)=>{
+      const filtredItems = navItems.filter((item) => {
         return (
           item.url === '/dashboard' ||
           item.name === 'Etablissement' ||
@@ -44,79 +44,15 @@ export class SidebarService {
       return of(filtredItems);
     }
     if (this.role === 'condidat') {
-      const filtredItems = navItems.filter((item)=>{
+      const filtredItems = navItems.filter((item) => {
         return (
-          item.url === '/dashboard' 
-
+          item.url === '/dashboard' ||
+          item.url === '/chat' ||
+          item.url === '/candidat'
         );
-      })
+      });
+      return of(filtredItems);
     }
-    // if (this.role === 'admin') {
-    //   const filtredItems = this.navItems.filter((item) => {
-    //     return (
-    //       item.url === '/home/dashboard' ||
-    //       item.name === 'Socièté' ||
-    //       item.name === 'User'
-    //     );
-    //   });
-    //   const produitMenu = this.navItems.filter(
-    //     (item) => item.name === 'Produit'
-    //   );
-    //   if (
-    //     produitMenu != null &&
-    //     produitMenu !== undefined &&
-    //     produitMenu.length > 0
-    //   ) {
-    //     const newMenuproduit: INavData[] = produitMenu[0].children.filter(
-    //       (item) => {
-    //         return item.url === '/home/produit/listproduit';
-    //       }
-    //     );
-    //     filtredItems.push(newMenuproduit[0]);
-    //   }
-    //   const CategorieMenu = this.navItems.filter(
-    //     (item) => item.name === 'Categorie'
-    //   );
-    //   if (
-    //     CategorieMenu != null &&
-    //     CategorieMenu !== undefined &&
-    //     CategorieMenu.length > 0
-    //   ) {
-    //     const newMenuCategorie: INavData[] = CategorieMenu[0].children.filter(
-    //       (item) => {
-    //         return item.url === '/home/categorie/listcategorie';
-    //       }
-    //     );
-    //     filtredItems.push(newMenuCategorie[0]);
-    //   }
-    //   const FournisseurMenu = this.navItems.filter(
-    //     (item) => item.name === 'Fournisseur'
-    //   );
-    //   if (
-    //     FournisseurMenu != null &&
-    //     FournisseurMenu !== undefined &&
-    //     FournisseurMenu.length > 0
-    //   ) {
-    //     const newMenuFournisseur: INavData[] = FournisseurMenu[0].children.filter(
-    //       (item) => {
-    //         return item.url === '/home/fournisseur/list-fournisseur';
-    //       }
-    //     );
-    //     filtredItems.push(newMenuFournisseur[0]);
-    //   }
-    //   return of(filtredItems);
-    // }
-    // if (this.role === 'user') {
-    //   const filtredItems = this.navItems.filter((item) => {
-    //     return (
-    //       item.url === '/home/dashboard' ||
-    //       item.name === 'Produit' ||
-    //       item.name === 'Categorie' ||
-    //       item.name === 'Fournisseur'
-    //     );
-    //   });
-    //   return of(filtredItems);
-    // }
   }
   reloadNavItem() {
     this.items$ = this.getNavItemsByRole();
