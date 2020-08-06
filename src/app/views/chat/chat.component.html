@@ -11,7 +11,7 @@
           <div class="inbox_chat" >
             <div class="chat_list" *ngFor="let candidat of listeCandidats">
               <div class="chat_people" (click)="clickUser(candidat._id)">
-                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">{{candidat.nom}} </div>
                 <div class="chat_ib">
                   <h5>{{candidat.email}}</h5>
                 </div>
@@ -23,19 +23,19 @@
           <div class="msg_history" >
             <div *ngFor="let message of listeMessages">
             <div *ngIf="message.user !== auth.connectedUser._id" class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">{{message.nom}}
               </div>
               <div class="received_msg">
                 <div class="received_withd_msg">
                   <p>{{message.content}}</p>
-                  <!-- <span class="time_date"> {{message.createdDate | date}}</span> -->
+                  <span class="time_date"> {{message.createdDate | date  : 'medium'}}</span>
                 </div>
               </div>
             </div>
             <div *ngIf="message.user === auth.connectedUser._id" class="outgoing_msg">
               <div class="sent_msg">
                 <p>{{message.content}}</p>
-                <!-- <span class="time_date"> {{message.createdDate | date}}</span> -->
+                <span class="time_date"> {{message.createdDate | date : 'medium'}}</span>
               </div>
             </div>
           </div>

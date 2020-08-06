@@ -47,6 +47,12 @@ export const navItems: INavData[] = [
     icon: 'icon-star',
   },
   {
+
+    name: 'Setting etab',
+    url: '/Settingetab',
+    icon: 'icon-star',
+  },
+  {
     name: 'Candidat',
     url: '/candidat',
     icon: 'icon-speedometer',
