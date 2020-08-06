@@ -28,7 +28,7 @@ export class ParametrageComponent implements OnInit {
     console.log(this.decoded);
 
   }
-  
+
   Save() {
     this.Superadmin.parametrageducompte(this.decoded.data._id, this.parametrageForm.value).subscribe((res: any) => {
       console.log(res);
