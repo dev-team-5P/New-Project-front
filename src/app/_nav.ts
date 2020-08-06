@@ -7,16 +7,9 @@ export const navItems: INavData[] = [
     icon: 'icon-speedometer',
   },
   {
-    name: 'superadmin',
-    url: '/superadmin',
+    name: 'list etablissement',
+    url: '/superadmin/listetablissement',
     icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'list etablissement',
-        url: '/superadmin/listetablissement',
-        icon: 'icon-drop',
-      },
-    ],
   },
   {
     name: 'Etablissement',
@@ -42,8 +35,7 @@ export const navItems: INavData[] = [
     icon: 'icon-star',
   },
   {
-
-    name: 'Setting etab',
+    name: 'Setting',
     url: '/Settingetab',
     icon: 'icon-star',
   },
