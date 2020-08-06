@@ -22,6 +22,8 @@ export class UpdateCandidatComponent implements OnInit {
 
   ngOnInit(): void {
     this.Id = this.route.snapshot.paramMap.get('id');
+    this.getCandById();
+
     this.updateCandForm = new FormGroup({
       nom: new FormControl('', Validators.required),
       prenom: new FormControl('', Validators.required),
@@ -29,6 +31,14 @@ export class UpdateCandidatComponent implements OnInit {
       telephone: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
+  }
+  getCandById() {
+    this.etablissementService.getcandById(this.Id).subscribe(
+      (res) => {
+        this.updateCandForm.patchValue(res);
+      },
+      (errors) => console.log(errors)
+    );
   }
 
   updatecand() {
