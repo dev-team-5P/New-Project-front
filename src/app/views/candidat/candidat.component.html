@@ -89,39 +89,39 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="padding: 40px;">
   <mat-card class="box">
       <mat-card-header>
-          <mat-card-title>Setting</mat-card-title>
+          <mat-card-title>Compte Candidat</mat-card-title>
       </mat-card-header>
       <br><br>
-      <form [formGroup]="parametrageForm">
+      <form [formGroup]="paramcandForm">
           <mat-card-content>
               <mat-form-field class="full-width">
-                  <input matInput type='text' placeholder="Name" formControlName='name' required>
+                  <input matInput type='text' placeholder="Name" formControlName='nom' required>
               </mat-form-field>
               <br>
               <mat-form-field class="example-full-width">
                   <input matInput type='email' placeholder="Email" formControlName='email' required>
-                  <mat-error *ngIf="parametrageForm.hasError('required','email')">
+                  <mat-error *ngIf="paramcandForm.hasError('required','email')">
                       email is required
                   </mat-error>
-                  <mat-error *ngIf="parametrageForm.hasError('email','email')">
+                  <mat-error *ngIf="paramcandForm.hasError('email','email')">
                       email is invalid
                   </mat-error>
               </mat-form-field>
               <br>
           </mat-card-content>
-          <button [disabled]="!parametrageForm.valid" type="button" mat-stroked-button color="accent"
-              class="btn-block" (click)="Save()">Save</button>
+          <button [disabled]="!paramcandForm.valid" type="button" mat-stroked-button color="accent"
+              class="btn-block" (click)="Savecand()">Save</button>
           <br><br>
       </form>
       <mat-card-title>modif pass</mat-card-title>
-      <form [formGroup]="modifpassForm">
+      <form [formGroup]="modifpasscandForm">
           <mat-card-content>
               <mat-form-field class="example-full-width">
                   <input matInput type='password' placeholder="Your old Password" formControlName="oldpass"
                     [type]="hide ? 'password' : 'text'" required>
                   <mat-icon matSuffix (click)="hide = !hide">
                     {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="modifpassForm.hasError('required','password')">
+                  <mat-error *ngIf="modifpasscandForm.hasError('required','password')">
                     password is required
                   </mat-error>
                 </mat-form-field>
@@ -131,14 +131,14 @@
                     [type]="hide ? 'password' : 'text'" required>
                   <mat-icon matSuffix (click)="hide = !hide">
                     {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="modifpassForm.hasError('required','password')">
+                  <mat-error *ngIf="modifpasscandForm.hasError('required','password')">
                     password is required
                   </mat-error>
                 </mat-form-field>
               <br>
           </mat-card-content>
-          <button [disabled]="!parametrageForm.valid" type="button" mat-stroked-button color="accent"
-              class="btn-block" (click)="Savepass()">Save Password</button>
+          <button [disabled]="!modifpasscandForm.valid" type="button" mat-stroked-button color="accent"
+              class="btn-block" (click)="Savepasscand()">Save Password</button>
           <br><br>
       </form>
   </mat-card>

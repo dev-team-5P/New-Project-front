@@ -11,6 +11,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { CandidatRoutingModule } from './candidat-routing.module';
 import { CandidatComponent } from './candidat.component';
 import {MatTableModule} from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
 
@@ -26,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
     MatCheckboxModule,
     MatOptionModule,
     MatTableModule,
+    MatCardModule,
   ],
   declarations: [
     CandidatComponent,
