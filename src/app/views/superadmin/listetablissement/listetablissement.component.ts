@@ -4,13 +4,13 @@ import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
-import {  MatSort, } from '@angular/material/sort';
+// import {  MatSort, } from '@angular/material/sort';
 import { Router } from '@angular/router';
 
 export interface Data {
   nom: string;
   adresse: string;
-  tel: number;
+  telephone: number;
   fax: number;
 }
 
@@ -22,13 +22,11 @@ const ELEMENT_DATA: Data[] = [
   styleUrls: ['./listetablissement.component.css']
 })
 export class ListetablissementComponent implements OnInit {
-
-  dataSource: any;
-  displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
-  // tslint:disable-next-line: no-trailing-whitespace
+  dataSource: any; ;
+  displayedColumns : string[] = ['nom', 'adresse', 'telephone', 'fax', 'Edit','Delete'];
   @ViewChild(MatPaginator) paginator: MatPaginator;  
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort; 
+  // @ViewChild(MatSort, { static: true }) sort: MatSort; 
   
   constructor(private adminservice: SuperadminService,private router: Router) { }
 
@@ -44,7 +42,7 @@ export class ListetablissementComponent implements OnInit {
       res => {
         this.dataSource = new MatTableDataSource();
         this.dataSource.data = res;
-        this.dataSource.sort = this.sort;
+        // this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
         console.log(this.dataSource.data);
       },
@@ -59,10 +57,13 @@ export class ListetablissementComponent implements OnInit {
     this.dataSource.filter = searchstring;
   }
   // tslint:disable-next-line: use-lifecycle-interface
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
+
   editEtabli(id) {
     this.router.navigate([`/superadmin/updateetablissement/${id}`]);
     }
+    deleteEtab(id) {
+      this.adminservice.deleteetab(id).subscribe(() => {
+        this.getalletab();
+      });
+      }
 }

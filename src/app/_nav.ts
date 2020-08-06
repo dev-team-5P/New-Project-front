@@ -9,8 +9,14 @@ export const navItems: INavData[] = [
   {
     name: 'list etablissement',
     url: '/superadmin/listetablissement',
-    icon: 'icon-puzzle',
+    icon: 'icon-star',
   },
+  {
+    name: 'Chat',
+    url: '/chat',
+    icon: 'icon-speedometer',
+  },
+
   {
     name: 'Etablissement',
     url: '/etablissemnt',
@@ -40,7 +46,7 @@ export const navItems: INavData[] = [
     icon: 'icon-star',
   },
   {
-    name: 'Candidat',
+    name: 'Setting',
     url: '/candidat',
     icon: 'icon-speedometer',
 
