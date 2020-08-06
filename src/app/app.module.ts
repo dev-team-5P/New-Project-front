@@ -72,6 +72,7 @@ import { from } from 'rxjs';
 
 
 
+
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -136,7 +137,7 @@ import { from } from 'rxjs';
     ResetComponent,
     RegisteretabComponent,
     // RegisteradminComponent,
-    DefaultLayoutComponent,
+    DefaultLayoutComponent
   ],
   providers: [{
     // provide: LocationStrategy,
