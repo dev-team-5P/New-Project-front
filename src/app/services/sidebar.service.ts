@@ -22,7 +22,7 @@ export class SidebarService {
       this.decoded = jwt_decode(token);
       this.role = this.decoded.data.role;
     }
-
+// guard by role **********
     if (this.role === 'superAdmin') {
       const filtredItems = this.navItems.filter((item) => {
         return (
