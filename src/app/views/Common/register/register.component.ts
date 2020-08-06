@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   RegisterForm: FormGroup;
   hide = true;
   ListEtablissements ;
-
   constructor(private auth: AuthService,
     private router: Router,
     private toastr: ToasterService) { }
