@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Socket } from 'ngx-socket-io';
 import { ChatService } from '../../services/chat.service';
 import { AuthService } from '../../services/auth.service';
+import * as jwt_decode from 'jwt-decode';
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -14,6 +16,8 @@ export class ChatComponent implements OnInit {
   listeMessages: any;
   messageForm: FormGroup;
   conversation: any;
+  token = localStorage.getItem('token') || {};
+  decoded = jwt_decode(this.token)
   constructor(private socket: Socket, public chatService: ChatService, public auth: AuthService) {
     this.listeMessages = [];
     this.listeCandidats = [];
@@ -28,13 +32,17 @@ export class ChatComponent implements OnInit {
       content: new FormControl(''),
       user: new FormControl(this.auth.connectedUser._id),
     });
+    console.log(this.decoded);
+    
     this.socket.on('newUserAdded', () => {
-      this.auth.getListeUsers().subscribe((res: any) => {
+      this.auth.getListeUsers(this.decoded.data.etablisement).subscribe((res: any[]) => {
         this.listeCandidats = res.filter(obj => obj._id !== this.auth.connectedUser._id);
       });
    });
-    this.auth.getListeUsers().subscribe((res: any) => {
+    this.auth.getListeUsers(this.decoded.data.etablisement).subscribe((res: any) => {
+      console.log(res);
       this.listeCandidats = res.filter(obj => obj._id !== this.auth.connectedUser._id);
+      
       this.clickUser(this.listeCandidats[0]._id);
     });
     this.socket.on('newMessageSended', () => {

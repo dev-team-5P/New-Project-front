@@ -72,7 +72,6 @@ import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { from } from 'rxjs';
 
-
 @NgModule({
   imports: [
     SocketIoModule.forRoot(config),
@@ -139,8 +138,7 @@ import { from } from 'rxjs';
     ResetComponent,
     RegisteretabComponent,
     // RegisteradminComponent,
-    DefaultLayoutComponent,
-  
+    DefaultLayoutComponent
   ],
   providers: [
     ToasterService,

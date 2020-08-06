@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CandidatComponent } from './candidat.component';
+import { ParametrageetablisementComponent } from './parametrageetablisement.component';
+
+
+
 
 
 const routes: Routes = [
     {
         path: '',
-        component: CandidatComponent,
+        component: ParametrageetablisementComponent,
         data: {
-            title: 'Compte Candidat'
+            title: 'Page de Parametrage'
         }
-    }
+    },
 ];
+
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class CandidatRoutingModule { }
+export class ParametrageetabRoutingModule { }
