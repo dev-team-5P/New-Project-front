@@ -6,25 +6,15 @@ import { CandidatComponent } from './candidat.component';
 const routes: Routes = [
     {
         path: '',
+        component: CandidatComponent,
         data: {
-            title: 'Administration',
-        },
-        children: [
-                    {
-                        path: 'comptecandidat',
-                        component: CandidatComponent,
-                        data: {
-                            title: 'Setting compte'
-                        }
-                    },
-                ],
-            },
-
-
-        ];
+            title: 'Compte Candidat'
+        }
+    }
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class CandidatRoutingModule { }
