@@ -11,7 +11,9 @@ import { SidebarService } from '../../services/sidebar.service';
 export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems ;
-  constructor( private router: Router, private appSidebarService: SidebarService) {}
+  constructor( private router: Router,
+     private appSidebarService: SidebarService
+     ) {}
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
     this.navItems = this.appSidebarService.items$;

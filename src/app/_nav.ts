@@ -16,7 +16,6 @@ export const navItems: INavData[] = [
     url: '/chat',
     icon: 'icon-speedometer',
   },
-
   {
     name: 'Etablissement',
     url: '/etablissemnt',
@@ -35,7 +34,6 @@ export const navItems: INavData[] = [
     ],
   },
   {
-
     name: 'Setting',
     url: '/Setting',
     icon: 'icon-star',
@@ -49,6 +47,5 @@ export const navItems: INavData[] = [
     name: 'Setting',
     url: '/candidat',
     icon: 'icon-speedometer',
-
   },
 ];
