@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as jwt_decode from 'jwt-decode';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EtablissementService } from '../../../services/etablissement.service';
 
@@ -16,12 +17,11 @@ export class UpdateCandidatComponent implements OnInit {
 
   constructor(private etablissementService: EtablissementService,
     private router: Router,
-    // private activateroute: ActivatedRoute,
+    private activateroute: ActivatedRoute,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.Id = this.route.snapshot.paramMap.get('id');
-    this.getCandById();
     this.updateCandForm = new FormGroup({
       nom: new FormControl('', Validators.required),
       prenom: new FormControl('', Validators.required),
@@ -29,14 +29,6 @@ export class UpdateCandidatComponent implements OnInit {
       telephone: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
-  }
-  getCandById() {
-    this.etablissementService.getcandById(this.Id).subscribe(
-      (res) => {
-        this.updateCandForm.patchValue(res);
-      },
-      (errors) => console.log(errors)
-    );
   }
 
   updatecand() {

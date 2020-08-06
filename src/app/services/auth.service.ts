@@ -9,10 +9,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-
+  connectedUser: any;
+  socket: any;
   BaseUrl = environment.baseuri;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    this.connectedUser = this.getConnectedUser();
+   }
   /*******************************Register Admin ********************* */
   Registeradm(data) {
     const url = `${this.BaseUrl}/superadmin/register`;
@@ -42,5 +45,45 @@ export class AuthService {
     const url = `${this.BaseUrl}/login`;
 
     return this.http.post(url, data);
+  }
+  requestReset(body) {
+    return this.http.post(`${this.BaseUrl}/login/req-reset-password`, body);
+  }
+  newPassword(body, token) {
+    const tokenQuery = `?token=${token}`;
+    return this.http.post(
+      `${this.BaseUrl}/login/new-password${tokenQuery}`,
+      body
+    );
+  }
+  ValidPasswordToken(body, token) {
+    const tokenQuery = `?token=${token}`;
+    return this.http.post(
+      `${this.BaseUrl}/login/valid-password-token${tokenQuery}`,
+      body
+    );
+  }
+  getListeUsers() {
+    return this.http.get('http://localhost:3000/Condidat/getListeCandidat');
+  }
+  saveToken(token) {
+    localStorage.setItem( 'token', token);
+    this.connectedUser = this.getConnectedUser();
+  }
+  removeToken() {
+    localStorage.deleteAll();
+  }
+  getConnectedUser() {
+    if (localStorage.getItem('token')) {
+      const token = localStorage.getItem('token');
+      return jwt_decode(token).data;
+    }
+  }
+  validToken() {
+    if (localStorage.getItem('token')) {
+      return true;
+    }
+    this.connectedUser = {};
+    return false;
   }
 }
