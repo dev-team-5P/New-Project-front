@@ -46,7 +46,7 @@
               <ng-container matColumnDef="Delete">
                 <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button mat-raised-button class="btn btn-danger">Delete</button>
+                  <button mat-raised-button class="btn btn-danger" (click)="deleteEtab(element._id)">Delete</button>
                 </mat-cell>
               </ng-container>
               <!-- buttons -->

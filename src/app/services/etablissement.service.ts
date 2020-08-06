@@ -24,7 +24,7 @@ export class EtablissementService {
   }
 
   getcandById(id) {
-    const url = `${this.BaseUrl}/user/${id}`;
+    const url = `${this.BaseUrl}/Etablisement/${id}`;
     return this.http.get(url);
   }
 

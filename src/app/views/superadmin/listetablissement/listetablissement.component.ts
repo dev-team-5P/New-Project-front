@@ -3,7 +3,8 @@ import { SuperadminService } from '../../../services/superadmin.service';
 import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatSortModule} from '@angular/material/sort';
+import {  MatSort, } from '@angular/material/sort';
+
 export interface Data {
   nom: string;
   adresse: string;
@@ -19,41 +20,42 @@ const ELEMENT_DATA: Data[] = [
   styleUrls: ['./listetablissement.component.css']
 })
 export class ListetablissementComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSortModule, {static: false}) sort: MatSortModule;
-  displayedColumns: string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit', 'Delete'];
-  dataSource: any;
-
-
-  constructor(private adminservice: SuperadminService, ) { }
+  dataSource: any; ;
+  displayedColumns : string[] = ['nom', 'adresse', 'tel', 'fax', 'Edit','Delete'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;  
+  @ViewChild(MatSort, { static: true }) sort: MatSort; 
+  
+  constructor(private adminservice: SuperadminService,) { }
 
   ngOnInit(): void {
     this.getalletab();
 
   }
   // ************* get all etabllisement for superAdmin*******//
-  getalletab() {
-    this.adminservice.getall()
-      .subscribe(
-      res => {
-        this.dataSource = new MatTableDataSource();
-        this.dataSource.data = res;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-        console.log(this.dataSource.data);
-      },
-      error => {
-        console.log('There was an error while retrieving data !!!' + error);
-      });
-  }
+  getalletab() {  
+    this.adminservice.getall()  
+      .subscribe(  
+      res => {  
+        this.dataSource = new MatTableDataSource();  
+        this.dataSource.data = res;   
+        this.dataSource.sort = this.sort;  
+        this.dataSource.paginator = this.paginator;  
+        console.log(this.dataSource.data);  
+      },  
+      error => {  
+        console.log('There was an error while retrieving data !!!' + error);  
+      });  
+  }  
 
   Filter(searchstring: string) {
     searchstring = searchstring.trim();
     searchstring = searchstring.toLowerCase();
     this.dataSource.filter = searchstring;
   }
-  // tslint:disable-next-line: use-lifecycle-interface
-  ngAfterViewInit() {
-    // this.dataSource.sort = this.sort;
+// Delete etablissement
+deleteEtab(idetab) {
+  this.adminservice.deleteetab(idetab).subscribe(() => {
+    this.getalletab();
+  });
   }
 }

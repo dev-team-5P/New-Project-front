@@ -33,11 +33,6 @@ export const navItems: INavData[] = [
         url: '/etablissement/listcandidat',
         icon: 'icon-star',
       },
-      {
-        name: 'Update candidat',
-        url: '/etablissement/updatecandidat',
-        icon: 'icon-star',
-      },
     ],
   },
   {
