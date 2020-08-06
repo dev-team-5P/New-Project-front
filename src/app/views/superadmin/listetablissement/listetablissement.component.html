@@ -26,9 +26,9 @@
               </ng-container>
             
               <!-- Weight Column -->
-              <ng-container matColumnDef="tel">
-                <mat-header-cell  mat-sort-header *matHeaderCellDef> tel </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.tel}} </mat-cell>
+              <ng-container matColumnDef="telephone">
+                <mat-header-cell  mat-sort-header *matHeaderCellDef> telephone </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.telephone}} </mat-cell>
               </ng-container>
             
               <!-- Symbol Column -->
@@ -40,7 +40,7 @@
               <ng-container matColumnDef="Edit">
                 <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button mat-raised-button class="btn btn-info">Edit</button>
+                  <button mat-raised-button class="btn btn-info"  (click)="editEtabli(element._id)">Edit</button>
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="Delete">

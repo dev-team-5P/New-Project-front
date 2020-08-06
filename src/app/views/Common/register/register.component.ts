@@ -3,8 +3,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { ToasterService } from 'angular2-toaster';
-import { SuperadminService } from '../../../services/superadmin.service';
-import * as jwt_decode from "jwt-decode";
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,11 +16,12 @@ export class RegisterComponent implements OnInit {
   ListEtablissements ;
   constructor(private auth: AuthService,
     private router: Router,
-    private toastr: ToasterService , 
-    private superAdmin : SuperadminService) { }
+    private toastr: ToasterService) { }
     
 
   ngOnInit(): void {
+
+    this.getetab();
     this.RegisterForm = new FormGroup ({
       nom: new FormControl ('', Validators.required),
       prenom: new FormControl ('', Validators.required),
@@ -31,8 +31,7 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', Validators.required),
       etablisement: new FormControl (null , Validators.required),
     })
-    // this.ListEtablissements = this.superAdmin.getall();
-    this.getetab();
+
   }
   register() {
     this.auth.Register(this.RegisterForm.value.etablisement, this.RegisterForm.value).subscribe(
@@ -47,7 +46,7 @@ export class RegisterComponent implements OnInit {
     );
   }
   getetab() {
-      this.superAdmin.getall().subscribe ((res:any)=> {
+      this.auth.getetab().subscribe ((res:any)=> {
         this.ListEtablissements = res; 
       })
   }

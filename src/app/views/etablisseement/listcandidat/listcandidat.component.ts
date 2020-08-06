@@ -26,37 +26,12 @@ export class ListcandidatComponent implements OnInit {
   displayedColumns: string[] = ['nom', 'prenon', 'email', 'phone', 'Edit', 'Delete'];
   dataSource: any;
   isDeleted = false;
-  element ;
 
-  constructor(private etablissementService: EtablissementService,
-    private modalService: NgbModal) { }
+  constructor(private etablissementService: EtablissementService) { }
 
   ngOnInit(): void {
     this.getallcand();
   }
-
-  openDialog(content) {
-    this.isDeleted = !this.isDeleted;
-    this.modalService.open(content);
-  }
-
-  closeModal() {
-    this.modalService.dismissAll();
-  }
-
-  acceptDelete(i, id) {
-      this.etablissementService.deletecand(id).subscribe(
-        (res: any) => {
-          this.getallcand();
-          this.element.splice(i, 1);
-        },
-        (err) => {
-         console.log('error');
-        }
-      );
-    this.modalService.dismissAll();
-  }
-
   getallcand() {
     this.etablissementService.getallcand()
       .subscribe(
@@ -76,8 +51,10 @@ export class ListcandidatComponent implements OnInit {
     searchstring = searchstring.toLowerCase();
     this.dataSource.filter = searchstring;
   }
-  // tslint:disable-next-line: use-lifecycle-interface
-  // ngAfterViewInit() {
-  //   this.dataSource.sort = this.sort;
-  // }
-}
+
+  deleteCand(id) {
+    this.etablissementService.deletecand(id).subscribe(() => {
+      this.getallcand();
+    });
+    }
+  }

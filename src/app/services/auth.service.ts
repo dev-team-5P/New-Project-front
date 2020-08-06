@@ -36,6 +36,10 @@ export class AuthService {
     const url = `${this.BaseUrl}/Condidat/${j}/register`;
     return this.http.post(url, data);
   }
+  getetab() {
+    const url = `${this.BaseUrl}/Condidat/etablisement`;
+    return this.http.get(url);
+  }
 /*******************************Login********************* */
   signin(data) {
     const url = `${this.BaseUrl}/login`;

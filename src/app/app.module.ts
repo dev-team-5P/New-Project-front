@@ -46,7 +46,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/common/login/login.component';
 import { RegisterComponent } from './views/common/register/register.component';
 import { RegisteretabComponent } from './views/common/registeretab/registeretab.component';
-import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
+// import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
 import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
 import { AuthInterceptor } from './views/Common/interceptor';
@@ -139,7 +139,7 @@ import { from } from 'rxjs';
     ForgetComponent,
     ResetComponent,
     RegisteretabComponent,
-    RegisteradminComponent,
+    // RegisteradminComponent,
     DefaultLayoutComponent,
   
   ],
