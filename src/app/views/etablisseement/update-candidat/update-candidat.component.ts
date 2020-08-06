@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as jwt_decode from 'jwt-decode';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EtablissementService } from '../../../services/etablissement.service';
 
@@ -16,7 +17,7 @@ export class UpdateCandidatComponent implements OnInit {
 
   constructor(private etablissementService: EtablissementService,
     private router: Router,
-    // private activateroute: ActivatedRoute,
+    private activateroute: ActivatedRoute,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {

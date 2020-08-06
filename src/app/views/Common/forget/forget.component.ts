@@ -10,7 +10,7 @@ import { ToasterService } from 'angular2-toaster';
   styleUrls: ['./forget.component.css']
 })
 export class ForgetComponent implements OnInit {
-
+  token;
   resetForm: FormGroup;
 
   constructor(private auth: AuthService,
@@ -21,6 +21,16 @@ export class ForgetComponent implements OnInit {
     this.resetForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
     });
+  }
+  reqReset() {
+    this.auth
+      .requestReset(this.resetForm.value)
+      .subscribe((res: { message; token }) => {
+        this.token = res.token;
+        this.router.navigate(["/reset"], {
+          queryParams: { token: this.token },
+        });
+      });
   }
 
 }

@@ -59,10 +59,10 @@
                         formControlName="email"
                         placeholder="Email"
                       />
-                      <mat-error *ngIf="updateCandForm.hasError('required','email')">
+                      <mat-error *ngIf="addcandForm.hasError('required','email')">
                         email is required
                       </mat-error>
-                      <mat-error *ngIf="updateCandForm.hasError('email','email')">
+                      <mat-error *ngIf="addcandForm.hasError('email','email')">
                         email is invalid
                       </mat-error>
                     </mat-form-field>
