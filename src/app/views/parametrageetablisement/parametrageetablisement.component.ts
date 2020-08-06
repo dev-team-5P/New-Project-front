@@ -39,7 +39,7 @@ export class ParametrageetablisementComponent implements OnInit {
   }
 
   Save() {
-    this.etabService.parametragedecompteetab(this.decoded.data._id, this.parametrageetabForm.value).subscribe((res:any)=>{
+    this.etabService.parametragedecompteetab(this.decoded.data._id, this.parametrageetabForm.value).subscribe((res: any) => {
       console.log(res);
       this.upload(res._id);
 
@@ -74,6 +74,6 @@ export class ParametrageetablisementComponent implements OnInit {
   upload(id) {
     this.data = new FormData();
     this.data.append('image', this.file);
-    this.auth.upload(this.data, id).subscribe((res) => {})
+    this.auth.upload(this.data, id).subscribe((res) => {});
   }
 }
