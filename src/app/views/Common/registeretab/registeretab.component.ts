@@ -46,11 +46,11 @@ export class RegisteretabComponent implements OnInit {
       (res: any) => {
         this.upload(res._id);
         this.router.navigate(["/login"]);
-        this.toastr.pop('success', 'Args Title', 'Args Body');
+        // this.toastr.pop('success', 'Args Title', 'Args Body');
       },
       (err) => {
         this.router.navigate(["/registeretab"]);
-        return this.toastr.pop('warning', 'Args Title', 'Args Body');
+        // return this.toastr.pop('warning', 'Args Title', 'Args Body');
       }
     );
   }

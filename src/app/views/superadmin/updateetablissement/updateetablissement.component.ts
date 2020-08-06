@@ -30,22 +30,13 @@ export class UpdateetablissementComponent implements OnInit {
   }
   getEtabliById() {
     this.adminservice.getetabliById(this.Id).subscribe((res: any) => {
-      this.etabliUpdateform = new FormGroup({
-        nom: new FormControl(res.nom, [Validators.required]),
-        email: new FormControl(res.email, [
-          Validators.required,
-          Validators.email,
-        ]),
-        adresse: new FormControl ('', Validators.required),
-        telephone: new FormControl ('', Validators.required),
-        fax : new FormControl ('', Validators.required),
-      });
+      this.etabliUpdateform.patchValue(res)
     });
   }
     /******************update pme by id *********** */
     updatePmeById() {
       this.adminservice
-        .updatesociete(this.Id, this.etabliUpdateform.value)
+        .updateEtabli(this.Id, this.etabliUpdateform.value)
         .subscribe(() => {
           this.router.navigate(["../../listetablissement"], { relativeTo: this.route });
         });
