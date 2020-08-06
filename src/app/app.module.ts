@@ -34,6 +34,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 import { AppComponent } from './app.component';
 
@@ -70,11 +72,10 @@ import { ChartsModule } from 'ng2-charts';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { from } from 'rxjs';
 
-
-
-
 @NgModule({
   imports: [
+    SocketIoModule.forRoot(config),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
@@ -125,6 +126,7 @@ import { from } from 'rxjs';
     MatButtonToggleModule,
     MatTreeModule,
     FlexLayoutModule,
+    SocketIoModule
   ],
   declarations: [
     AppComponent,

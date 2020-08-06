@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SuperadminService {
   BaseUrl = environment.baseuri;
-  token = localStorage.getItem('token');
+  token = localStorage.getItem('token') || {};
   constructor(private http: HttpClient, private router: Router) { }
   getall() {
     // tslint:disable-next-line: no-shadowed-variable
@@ -33,7 +33,7 @@ export class SuperadminService {
     return this.http.get(url);
   }
   /******************update etabli*************** */
-  updatesociete(id, data) {
+  updateEtabli(id, data) {
     const url = `${this.BaseUrl}/Etablisement/updatesuper/${id}`;
     return this.http.put(url, data);
   }
