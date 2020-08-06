@@ -63,8 +63,8 @@ export class AuthService {
       body
     );
   }
-  getListeUsers() {
-    return this.http.get('http://localhost:3000/Condidat/getListeCandidat');
+  getListeUsers(id) {
+    return this.http.get(`http://localhost:3000/Condidat/getListeCandidat/${id}`);
   }
   saveToken(token) {
     localStorage.setItem( 'token', token);
