@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SuperadminService } from '../../../services/superadmin.service';
 @Component({
   selector: 'app-updateetablissement',
@@ -15,7 +15,7 @@ export class UpdateetablissementComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) { }
-  Id = this.activateroute.snapshot.paramMap.get("id");
+  Id = this.activateroute.snapshot.paramMap.get('id');
   etabliUpdateform: FormGroup;
   etablissement;
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class UpdateetablissementComponent implements OnInit {
   }
   getEtabliById() {
     this.adminservice.getetabliById(this.Id).subscribe((res: any) => {
-      this.etabliUpdateform.patchValue(res)
+      this.etabliUpdateform.patchValue(res);
     });
   }
     /******************update pme by id *********** */
@@ -38,7 +38,7 @@ export class UpdateetablissementComponent implements OnInit {
       this.adminservice
         .updateEtabli(this.Id, this.etabliUpdateform.value)
         .subscribe(() => {
-          this.router.navigate(["../../listetablissement"], { relativeTo: this.route });
+          this.router.navigate(['../../listetablissement'], { relativeTo: this.route });
         });
     }
 }

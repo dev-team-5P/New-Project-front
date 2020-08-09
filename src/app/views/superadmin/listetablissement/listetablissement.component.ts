@@ -22,13 +22,13 @@ const ELEMENT_DATA: Data[] = [
   styleUrls: ['./listetablissement.component.css']
 })
 export class ListetablissementComponent implements OnInit {
-  dataSource: any; ;
-  displayedColumns : string[] = ['nom', 'adresse', 'telephone', 'fax', 'Edit','Delete'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;  
+  dataSource: any;
+  displayedColumns: string[] = ['nom', 'adresse', 'telephone', 'fax', 'Edit', 'Delete'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  // @ViewChild(MatSort, { static: true }) sort: MatSort; 
-  
-  constructor(private adminservice: SuperadminService,private router: Router) { }
+  // @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  constructor(private adminservice: SuperadminService, private router: Router) { }
 
 
   ngOnInit(): void {

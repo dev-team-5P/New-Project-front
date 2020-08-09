@@ -86,4 +86,9 @@ export class AuthService {
     this.connectedUser = {};
     return false;
   }
+  logout() {
+      localStorage.clear();
+      // tslint:disable-next-line: deprecation
+      window.location.reload(true);
+  }
 }

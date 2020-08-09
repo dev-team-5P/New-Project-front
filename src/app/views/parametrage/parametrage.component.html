@@ -76,7 +76,7 @@
                  
                 <form [formGroup]="parametrageForm">
                   <mat-card-content>
-                      <mat-form-field class="full-width">
+                      <mat-form-field class="example-full-width">
                           <input matInput type='text' placeholder="Name" formControlName='name' required>
                       </mat-form-field>
                       <br>
@@ -91,7 +91,7 @@
                       </mat-form-field>
                       <br>
                   </mat-card-content>
-                  <button [disabled]="!parametrageForm.valid" type="button" mat-stroked-button color="accent"
+                  <button [disabled]="!parametrageForm.valid" type="button" mat-flat-button color="primary"
                       class="btn-block" (click)="Save()">Save</button>
                   <br><br>
               </form>
@@ -133,7 +133,7 @@
                           </mat-form-field>
                         <br>
                     </mat-card-content>
-                    <button [disabled]="!parametrageForm.valid" type="button" mat-stroked-button color="accent"
+                    <button [disabled]="!parametrageForm.valid" type="button" mat-flat-button color="primary"
                         class="btn-block" (click)="Savepass()">Save Password</button>
                     <br><br>
                 </form>
