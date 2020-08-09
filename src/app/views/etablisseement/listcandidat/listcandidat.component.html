@@ -47,7 +47,30 @@
                   <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
                   <mat-cell *matCellDef="let element">
 
-                    <button mat-raised-button class="btn btn-danger" (click)="deleteCand(element._id)">Delete</button>
+                    <button type="button" mat-raised-button class="btn btn-danger" data-toggle="modal" data-target="#centralModalDanger">Delete</button>
+                    <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-notify modal-danger" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <p class="heading lead">Delete Candidate</p>
+                   
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="text-center">
+                              <p>Are you sure to delete definitively this user from your establishment???</p>
+                            </div>
+                          </div>
+                          <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-danger" (click)="deleteCand(element._id)" data-dismiss="modal">Yes! Delete </button>
+                            <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </mat-cell>
                 </ng-container>
                 <!-- buttons -->
