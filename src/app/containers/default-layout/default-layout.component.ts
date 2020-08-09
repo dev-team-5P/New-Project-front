@@ -3,6 +3,7 @@ import { navItems } from '../../_nav';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { SidebarService } from '../../services/sidebar.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,8 @@ export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems ;
   constructor( private router: Router,
-     private appSidebarService: SidebarService
+     private appSidebarService: SidebarService,
+     private auth: AuthService
      ) {}
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class DefaultLayoutComponent {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/']);
-  }
+      this.auth.logout();
+      this.router.navigate(['/']);
+    }
 }
