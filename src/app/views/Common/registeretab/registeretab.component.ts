@@ -45,7 +45,7 @@ export class RegisteretabComponent implements OnInit {
     this.auth.Registeretab(this.RegisteretabForm.value).subscribe(
       (res: any) => {
         this.upload(res._id);
-        this.toasterService.pop('success', 'success', 'Welcom back');
+        this.toasterService.pop('success', 'success', 'successfully registered');
         this.router.navigate(["/login"]);
       },
       (err) => {

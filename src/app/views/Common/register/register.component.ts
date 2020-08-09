@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.auth.Register(this.RegisterForm.value.etablisement, this.RegisterForm.value).subscribe(
       () => {
-        this.toasterService.pop('success', 'success', 'Welcom back');
+        this.toasterService.pop('success', 'success', 'successfully registered');
         this.router.navigate(["/login"]);
       },
       (err) => {
