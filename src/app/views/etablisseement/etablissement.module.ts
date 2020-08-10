@@ -13,6 +13,7 @@ import { ListcandidatComponent } from './listcandidat/listcandidat.component';
 import {MatTableModule} from '@angular/material/table';
 import { AddcandidatComponent } from './addcandidat/addcandidat.component';
 import { UpdateCandidatComponent } from './update-candidat/update-candidat.component';
+import { MailingComponent } from './mailing/mailing.component';
 
 @NgModule({
 
@@ -33,6 +34,7 @@ import { UpdateCandidatComponent } from './update-candidat/update-candidat.compo
     ListcandidatComponent,
     AddcandidatComponent,
     UpdateCandidatComponent,
+    MailingComponent,
   ],
 })
 export class EtablissementModule { }
