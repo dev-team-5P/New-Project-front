@@ -26,7 +26,7 @@ export class ResetComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private toastr: ToasterService
+    private toasterService: ToasterService
   ) {}
 
   ngOnInit() {
@@ -43,10 +43,10 @@ export class ResetComponent implements OnInit {
       .subscribe(
         (res: { message: string }) => {
           this.CurrentState = true;
-          return this.toastr.pop(res.message);
+          this.toasterService.pop('success', 'success', 'valid code');
         },
         (err) => {
-          return this.toastr.pop("Code does not match");
+          this.toasterService.pop('error', 'Erreur', 'something wrong');
         }
       );
   }
@@ -81,7 +81,7 @@ export class ResetComponent implements OnInit {
 
   ResetPassword() {
     if (this.validatePassword()) {
-      return this.toastr.pop("Password does not match","close button","retry");
+      this.toasterService.pop('error', 'Erreur', 'something wrong');
     }
    else {
       this.authService
@@ -91,7 +91,7 @@ export class ResetComponent implements OnInit {
         )
         .subscribe((res: { message: string }) => {
           return (
-            this.toastr.pop(res.message) &&
+            this.toasterService.pop('success', 'success', 'passeword changed') &&
             this.router.navigateByUrl("/login")
           );
         });
