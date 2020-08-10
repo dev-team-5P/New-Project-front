@@ -48,5 +48,10 @@ export class EtablissementService {
     return this.http.put(url, data);
   }
 
+  SendToAllCandidat(data) {
+    const url = `${this.BaseUrl}/mailing`;
+    return this.http.post(url, data);
+  }
+
 
 }

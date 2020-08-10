@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SuperadminService } from '../../services/superadmin.service';
 import * as jwt_decode from 'jwt-decode';
-
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-parametrage',
@@ -16,7 +16,9 @@ export class ParametrageComponent implements OnInit {
   isCollapsed: boolean = true;
   isCollapsed1: boolean = true;
 
-  constructor(private Superadmin: SuperadminService) { }
+  constructor(private Superadmin: SuperadminService,
+    private toasterService: ToasterService
+    ) { }
 
   ngOnInit(): void {
     this.parametrageForm = new FormGroup ({
@@ -32,13 +34,23 @@ export class ParametrageComponent implements OnInit {
   Save() {
     this.Superadmin.parametrageducompte(this.decoded.data._id, this.parametrageForm.value).subscribe((res: any) => {
       console.log(res);
-    });
-  }
+      this.toasterService.pop('success', 'success', 'modification has been saved');
+    },
+    (err) => {
+      this.toasterService.pop('error', 'Erreur', 'something wrong');
+    }
+  );
+}
   Savepass() {
     this.Superadmin.modifPassadmin(this.decoded.data._id, this.modifpassForm.value).subscribe((res: any) => {
       console.log(res);
-    });
-  }
+      this.toasterService.pop('success', 'success', 'modification has been saved');
+    },
+    (err) => {
+      this.toasterService.pop('error', 'Erreur', 'something wrong');
+    }
+  );
+}
   collapsed(event: any): void {
     // console.log(event);
   }
