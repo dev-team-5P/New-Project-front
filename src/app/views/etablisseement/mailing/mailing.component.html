@@ -3,6 +3,28 @@
         Send a mail to all candidates
     </div>
     <div class="card-body">
+        <form [formGroup]="mailForm">
+            <!-- <p class="text-muted" routerLink="/login">Create your account</p> -->
+            <mat-form-field class="full-width input">
+                <mat-label>Subject</mat-label>
 
+                <input matInput placeholder="Subject" formControlName="subject" required />
+
+                <mat-error *ngIf="mailForm.hasError('required','subject')">
+                    Subject is required
+                </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width input">
+                <mat-label>Content</mat-label>
+                <textarea matInput rows="5" formControlName="content" placeholder="Ex. It makes me feel..."></textarea>
+                <mat-error *ngIf="mailForm.hasError('required','content')">
+                    Content is required
+                </mat-error>
+            </mat-form-field>
+        </form>
+        <button [disabled]="!mailForm.valid" type="button" (click)="sendmail()" mat-flat-button class="btn btn-info">
+            Send To All Candidate
+        </button>
     </div>
 </div>
