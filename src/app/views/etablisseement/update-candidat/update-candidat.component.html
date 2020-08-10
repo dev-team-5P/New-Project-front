@@ -1,4 +1,4 @@
-<div class="app-body">
+   <div class="app-body">
     <main class="main d-flex align-items-center">
       <div class="container">
         <div class="row">
@@ -59,10 +59,10 @@
                         formControlName="email"
                         placeholder="Email"
                       />
-                      <mat-error *ngIf="addcandForm.hasError('required','email')">
+                      <mat-error *ngIf="updateCandForm.hasError('required','email')">
                         email is required
                       </mat-error>
-                      <mat-error *ngIf="addcandForm.hasError('email','email')">
+                      <mat-error *ngIf="updateCandForm.hasError('email','email')">
                         email is invalid
                       </mat-error>
                     </mat-form-field>
@@ -85,4 +85,3 @@
       </div>
     </main>
   </div>
-  

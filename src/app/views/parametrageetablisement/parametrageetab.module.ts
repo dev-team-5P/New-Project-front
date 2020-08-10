@@ -13,11 +13,15 @@ import { CommonModule } from '@angular/common';
 import { ParametrageetablisementComponent } from './parametrageetablisement.component';
 import { ParametrageetabRoutingModule } from './parametrageetab-routing.module';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 @NgModule({
   imports: [
     ParametrageetabRoutingModule,
+    MatButtonToggleModule,
+    MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
