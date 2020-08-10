@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CandidatService } from '../../services/candidat.service';
 import * as jwt_decode from 'jwt-decode';
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-candidat',
@@ -16,7 +17,9 @@ export class CandidatComponent implements OnInit {
   isCollapsed: boolean = true;
   isCollapsed1: boolean = true;
 
-  constructor(private candidat: CandidatService) { }
+  constructor(private candidat: CandidatService,
+    private toasterService: ToasterService
+    ) { }
 
   ngOnInit(): void {
     this.paramcandForm = new FormGroup ({
@@ -36,13 +39,23 @@ export class CandidatComponent implements OnInit {
   Savecand() {
     this.candidat.comptecand(this.decoded.data._id, this.paramcandForm.value).subscribe((res: any) => {
       console.log(res);
-    });
-  }
+      this.toasterService.pop('success', 'success', 'modification has been saved');
+    },
+    (err) => {
+      this.toasterService.pop('error', 'Erreur', 'something wrong');
+    }
+  );
+}
   Savepasscand() {
     this.candidat.modifPasscand(this.decoded.data._id, this.modifpasscandForm.value).subscribe((res: any) => {
       console.log(res);
-    });
-  }
+      this.toasterService.pop('success', 'success', 'modification has been saved');
+    },
+    (err) => {
+      this.toasterService.pop('error', 'Erreur', 'something wrong');
+    }
+  );
+}
   collapsed(event: any): void {
     // console.log(event);
   }

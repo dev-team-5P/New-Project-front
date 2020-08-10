@@ -15,7 +15,8 @@ export class ForgetComponent implements OnInit {
 
   constructor(private auth: AuthService,
     private router: Router,
-    private toastr: ToasterService) { }
+    private toasterService: ToasterService
+    ) { }
 
   ngOnInit(): void {
     this.resetForm = new FormGroup({
@@ -30,6 +31,7 @@ export class ForgetComponent implements OnInit {
         this.router.navigate(["/reset"], {
           queryParams: { token: this.token },
         });
+      this.toasterService.pop('success', 'success', 'check your mail');
       });
   }
 
