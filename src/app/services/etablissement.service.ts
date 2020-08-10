@@ -38,5 +38,15 @@ export class EtablissementService {
     return this.http.delete(url);
   }
 
+  parametragedecompteetab(id, data) {
+    const url = `${this.BaseUrl}/Etablisement/Parametrage/${id}`;
+    return this.http.put(url, data);
+  }
+
+  modifPassetab(id, data) {
+    const url = `${this.BaseUrl}/Etablisement/changepass/${id}`;
+    return this.http.put(url, data);
+  }
+
 
 }

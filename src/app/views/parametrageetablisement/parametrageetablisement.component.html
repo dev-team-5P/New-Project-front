@@ -1,0 +1,112 @@
+<div class="card">
+    <div class="card-header">
+        Setting
+    </div>
+    <div class="card-body">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-header">
+                    Setting Accont
+                    <div class="card-header-actions">
+                        <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed">Modif information
+                            <span class="material-icons">
+                                arrow_drop_down
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="isCollapsed">
+                    <form [formGroup]="parametrageetabForm">
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type='text' placeholder="Name Etablissement" formControlName='nom' required>
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type='text' placeholder="Adress" formControlName='adresse' required>
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type='number' placeholder="Phone Number" formControlName='telephone' required>
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type='number' placeholder="Fax" formControlName='fax' required>
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type='email' placeholder="Email" formControlName='email' required>
+                                <mat-error *ngIf="parametrageetabForm.hasError('required','email')">
+                                    email is required
+                                </mat-error>
+                                <mat-error *ngIf="parametrageetabForm.hasError('email','email')">
+                                    email is invalid
+                                </mat-error>
+                            </mat-form-field>
+                            <br>
+                        </mat-card-content>
+                       
+                        <br><br>
+                    </form>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="file-input">Etablissement Logo</label>
+                        <div class="col-md-9">
+                          <input
+                            type="file"
+                            id="file-input"
+                            (change)="onFileChange($event)"
+                            name="file-input"
+                          />
+                        </div>
+                      </div>
+                     <button [disabled]="!parametrageetabForm.valid" type="button" mat-flat-button color="primary"
+                            class="btn-block" (click)="Save()">Save</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Setting Password
+                    <div class="card-header-actions">
+                        <button type="button" class="btn btn-primary" (click)="isCollapsed1 = !isCollapsed1">modif Password
+                            <span class="material-icons">
+                                arrow_drop_down
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" (collapsed)="collapsed1($event)" (expanded)="expanded1($event)"
+                    [collapse]="isCollapsed1">
+                    <form [formGroup]="modifpassForm">
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type='password' placeholder="Your old Password" formControlName="oldpass"
+                                    [type]="hide ? 'password' : 'text'" required>
+                                <mat-icon matSuffix (click)="hide = !hide">
+                                    {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                <mat-error *ngIf="modifpassForm.hasError('required','password')">
+                                    password is required
+                                </mat-error>
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type='password' placeholder="Your New Password" formControlName="newpass"
+                                    [type]="hide ? 'password' : 'text'" required>
+                                <mat-icon matSuffix (click)="hide = !hide">
+                                    {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                <mat-error *ngIf="modifpassForm.hasError('required','password')">
+                                    password is required
+                                </mat-error>
+                            </mat-form-field>
+                            <br>
+                        </mat-card-content>
+                        <button [disabled]="!parametrageetabForm.valid" type="button" mat-flat-button color="primary"
+                            class="btn-block" (click)="Savepass()">Save Password</button>
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

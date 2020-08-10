@@ -11,8 +11,8 @@ import { RegisteretabComponent } from './views/common/registeretab/registeretab.
 // import { RegisteradminComponent } from './views/common/registeradmin/registeradmin.component';
 import { ForgetComponent } from './views/Common/forget/forget.component';
 import { ResetComponent } from './views/Common/reset/reset.component';
-import { ConnectGuardGuard } from './guards/connect-guard.guard'
-import { from } from 'rxjs';               
+import { ConnectGuardGuard } from './guards/connect-guard.guard';
+import { from } from 'rxjs';
 
 
 
@@ -125,6 +125,10 @@ export const routes: Routes = [
       {
         path: 'Setting',
         loadChildren: () => import('./views/parametrage/parametrage.module').then((m => m.ParametrageModule))
+      },
+      {
+        path: 'Settingetab',
+        loadChildren: () => import('./views/parametrageetablisement/parametrageetab.module').then((m => m.ParametrageetabModule))
       },
       {
         path: 'candidat',

@@ -11,10 +11,16 @@ import { MatOptionModule } from '@angular/material/core';
 import { CandidatRoutingModule } from './candidat-routing.module';
 import { CandidatComponent } from './candidat.component';
 import {MatTableModule} from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
 
   imports: [
+    MatButtonModule,
+    MatButtonToggleModule,
     CommonModule,
     FormsModule,
     CandidatRoutingModule,
@@ -26,6 +32,9 @@ import {MatTableModule} from '@angular/material/table';
     MatCheckboxModule,
     MatOptionModule,
     MatTableModule,
+    MatCardModule,
+    CollapseModule,
+
   ],
   declarations: [
     CandidatComponent,

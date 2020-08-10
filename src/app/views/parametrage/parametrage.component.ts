@@ -13,6 +13,8 @@ export class ParametrageComponent implements OnInit {
   parametrageForm: FormGroup;
   modifpassForm: FormGroup;
   decoded = jwt_decode(this.Superadmin.token);
+  isCollapsed: boolean = true;
+  isCollapsed1: boolean = true;
 
   constructor(private Superadmin: SuperadminService) { }
 
@@ -25,10 +27,8 @@ export class ParametrageComponent implements OnInit {
        oldpass: new FormControl('', Validators.required),
       newpass: new FormControl('', Validators.required)
     });
-    console.log(this.decoded);
 
   }
-
   Save() {
     this.Superadmin.parametrageducompte(this.decoded.data._id, this.parametrageForm.value).subscribe((res: any) => {
       console.log(res);
@@ -38,6 +38,21 @@ export class ParametrageComponent implements OnInit {
     this.Superadmin.modifPassadmin(this.decoded.data._id, this.modifpassForm.value).subscribe((res: any) => {
       console.log(res);
     });
+  }
+  collapsed(event: any): void {
+    // console.log(event);
+  }
+
+  expanded(event: any): void {
+    // console.log(event);
+  }
+
+  collapsed1(event: any): void {
+    // console.log(event);
+  }
+
+  expanded1(event: any): void {
+    // console.log(event);
   }
 
 }
