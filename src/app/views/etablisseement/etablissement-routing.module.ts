@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListcandidatComponent } from './listcandidat/listcandidat.component';
 import { AddcandidatComponent } from './addcandidat/addcandidat.component';
 import { UpdateCandidatComponent } from './update-candidat/update-candidat.component';
+import { MailingComponent } from './mailing/mailing.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,13 @@ const routes: Routes = [
                         component: AddcandidatComponent,
                         data: {
                             title: 'Add listetcandidat'
+                        }
+                    },
+                    {
+                        path: 'mailing',
+                        component: MailingComponent,
+                        data: {
+                            title: 'Mailing'
                         }
                     },
                     {

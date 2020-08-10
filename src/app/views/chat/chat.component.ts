@@ -24,6 +24,8 @@ export class ChatComponent implements OnInit {
     this.messageForm = new FormGroup({
       content: new FormControl(''),
       user: new FormControl(''),
+      name : new FormControl('')
+
     });
   }
 
@@ -31,6 +33,7 @@ export class ChatComponent implements OnInit {
     this.messageForm = new FormGroup({
       content: new FormControl(''),
       user: new FormControl(this.auth.connectedUser._id),
+      name : new FormControl(this.decoded.data.nom)
     });
     console.log(this.decoded);
     
@@ -60,7 +63,9 @@ export class ChatComponent implements OnInit {
   }
   sendMessage() {
      console.log('clicked');
-     this.chatService.sendMessage(this.messageForm.value, this.conversation).subscribe();
+     this.chatService.sendMessage(this.messageForm.value, this.conversation).subscribe((res)=>{
+       this.messageForm.controls['content'].patchValue('');
+     });
   }
 
 }
