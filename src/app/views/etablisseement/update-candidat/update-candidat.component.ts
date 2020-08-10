@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as jwt_decode from 'jwt-decode';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EtablissementService } from '../../../services/etablissement.service';
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-update-candidat',
@@ -18,7 +19,10 @@ export class UpdateCandidatComponent implements OnInit {
   constructor(private etablissementService: EtablissementService,
     private router: Router,
     private activateroute: ActivatedRoute,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private toasterService: ToasterService
+    
+    ) { }
 
   ngOnInit(): void {
     this.Id = this.route.snapshot.paramMap.get('id');
@@ -45,6 +49,7 @@ export class UpdateCandidatComponent implements OnInit {
       .updatecand(this.Id, this.updateCandForm.value)
       .subscribe(() => {
         this.router.navigate(['../../listcandidat'], { relativeTo: this.route });
+        this.toasterService.pop('success', 'success', 'successfully updated');
       });
   }
 

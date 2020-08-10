@@ -3,6 +3,7 @@ import { SuperadminService } from '../../../services/superadmin.service';
 import * as jwt_decode from 'jwt-decode';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { ToasterService } from 'angular2-toaster';
 
 // import {  MatSort, } from '@angular/material/sort';
 import { Router } from '@angular/router';
@@ -28,7 +29,10 @@ export class ListetablissementComponent implements OnInit {
 
   // @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private adminservice: SuperadminService, private router: Router) { }
+  constructor(private adminservice: SuperadminService,
+     private router: Router,
+     private toasterService: ToasterService
+     ) { }
 
 
   ngOnInit(): void {
@@ -63,6 +67,7 @@ export class ListetablissementComponent implements OnInit {
     }
     deleteEtab(id) {
       this.adminservice.deleteetab(id).subscribe(() => {
+        this.toasterService.pop('success', 'success', 'Successfully deleted');
         this.getalletab();
       });
       }

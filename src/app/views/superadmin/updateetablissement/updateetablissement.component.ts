@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SuperadminService } from '../../../services/superadmin.service';
+import { ToasterService } from 'angular2-toaster';
+
 @Component({
   selector: 'app-updateetablissement',
   templateUrl: './updateetablissement.component.html',
@@ -14,6 +16,8 @@ export class UpdateetablissementComponent implements OnInit {
     private activateroute: ActivatedRoute,
     private router: Router,
     private route: ActivatedRoute,
+    private toasterService: ToasterService
+
   ) { }
   Id = this.activateroute.snapshot.paramMap.get('id');
   etabliUpdateform: FormGroup;
@@ -39,6 +43,7 @@ export class UpdateetablissementComponent implements OnInit {
         .updateEtabli(this.Id, this.etabliUpdateform.value)
         .subscribe(() => {
           this.router.navigate(['../../listetablissement'], { relativeTo: this.route });
+          this.toasterService.pop('success', 'success', 'successfully updated');
         });
     }
 }

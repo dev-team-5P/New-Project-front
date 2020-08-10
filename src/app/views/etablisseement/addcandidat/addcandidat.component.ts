@@ -34,7 +34,7 @@ export class AddcandidatComponent implements OnInit {
   addCandidat() {
     this.etablissement.addcand(this.addcandForm.value).subscribe(
       () => {
-        this.toasterService.pop('success', 'success', 'Successfully Aded');
+        this.toasterService.pop('success', 'success', 'Successfully Added');
         this.router.navigate(['/etablissement/listcandidat']);
       });
   }
