@@ -12,11 +12,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 @NgModule({
   imports: [
     ParametrageRoutingModule,
+    MatButtonModule,
+    MatButtonToggleModule,
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
