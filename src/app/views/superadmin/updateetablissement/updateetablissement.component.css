@@ -1,0 +1,17 @@
+.full-width {
+    width: 100%;
+    margin-top: -20px;
+  }
+  .app-body {
+    margin-top: 30px;
+  }
+  :host(app-update-user) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+    

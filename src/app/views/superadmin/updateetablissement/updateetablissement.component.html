@@ -1,45 +1,69 @@
-<p>updateetablissement works!</p>
-<div class="col-sm-12">
-    <div class="card">
-      <div class="card-header">
-        <strong>Company</strong>
-        <small>Form</small>
-      </div>
-      <form class="card-body" [formGroup]="etabliUpdateform">
-        <div class="row">
-          <div class="form-group  col-sm-6">
-            <mat-form-field>
-              <input type="text" matInput formControlName="nom" placeholder="Enter your company name">
-            </mat-form-field>
-          </div>
-          <div class="form-group  col-sm-6">
-            <mat-form-field>
-              <input type="email" matInput formControlName="email" placeholder="Enter your company email">
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="form-group">
-          <mat-form-field>
-            <input type="text" matInput formControlName="adresse" placeholder="Enter street Adresse">
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <div class="form-group col-sm-6">
-            <mat-form-field>
-              <input type="number" matInput formControlName="telephone" placeholder="Enter your Télephone number">
-            </mat-form-field>
-          </div>
-          <div class="form-group col-sm-6">
-            <mat-form-field>
-              <input type="number" matInput formControlName="fax" placeholder="Enter your fax number">
-            </mat-form-field>
-          </div>
-        </div>
-        <!--/.row-->
-        <div class="row">
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form [formGroup]=" etabliUpdateform">
+                <h1>Update Etablissement</h1>
 
+                <div class="input-group mb-3">
+                  <mat-form-field class="full-width">
+                    <input type="text" 
+                    matInput formControlName="nom" 
+                    placeholder="Enter your company name">
+
+                  </mat-form-field>
+                </div>
+                <div class="input-group mb-3">
+                  <mat-form-field class="full-width">
+                    <input type="email"
+                     matInput formControlName="email"
+                     placeholder="Enter your company email"
+                     >
+                  </mat-form-field>
+                </div>
+                <div class="input-group mb-3">
+                  <mat-form-field class="full-width">
+                    <input type="text"
+                     matInput formControlName="adresse" 
+                     placeholder="Enter street Adresse">
+
+                  </mat-form-field>
+                </div>
+                <div class="input-group mb-3">
+                  <mat-form-field class="full-width">
+                    <input type="number"
+                     matInput formControlName="telephone"
+                      placeholder="Enter your Télephone number">
+
+                  </mat-form-field>
+                </div>
+                <div class="input-group mb-3">
+                  <mat-form-field class="full-width">
+                    <input type="number"
+                     matInput formControlName="fax"
+                      placeholder="Enter your fax number"
+                      >
+                  </mat-form-field>
+                </div>
+
+                <div class="input-group mb-3">
+                </div>
+              </form>
+            </div>
+            <button
+              type="button"
+              class="btn btn-block btn-success"
+              (click)=" updateEtabById()"
+            >
+              Update
+            </button>
+          </div>
         </div>
-      </form>
-      <button type="button" class="btn btn-success px-4" (click)="updatePmeById()">Update</button>
+      </div>
     </div>
-  </div>
+  </main>
+</div>
+

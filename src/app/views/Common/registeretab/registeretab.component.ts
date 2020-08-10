@@ -18,7 +18,7 @@ export class RegisteretabComponent implements OnInit {
 
   constructor(private auth: AuthService,
     private router: Router,
-    private toastr: ToasterService) { 
+    private toasterService: ToasterService) {
       this.data = new FormData();
     }
 
@@ -45,12 +45,12 @@ export class RegisteretabComponent implements OnInit {
     this.auth.Registeretab(this.RegisteretabForm.value).subscribe(
       (res: any) => {
         this.upload(res._id);
+        this.toasterService.pop('success', 'success', 'successfully registered');
         this.router.navigate(["/login"]);
-        // this.toastr.pop('success', 'Args Title', 'Args Body');
       },
       (err) => {
+        this.toasterService.pop('error', 'Erreur', 'something wrong');
         this.router.navigate(["/registeretab"]);
-        // return this.toastr.pop('warning', 'Args Title', 'Args Body');
       }
     );
   }

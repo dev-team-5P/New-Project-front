@@ -16,7 +16,9 @@ export class AddcandidatComponent implements OnInit {
   hide = true;
   constructor(private auth: AuthService,
     private router: Router,
-    private etablissement: EtablissementService) { }
+    private etablissement: EtablissementService,
+    private toasterService: ToasterService
+    ) { }
 
   ngOnInit(): void {
     this.addcandForm = new FormGroup({
@@ -32,6 +34,7 @@ export class AddcandidatComponent implements OnInit {
   addCandidat() {
     this.etablissement.addcand(this.addcandForm.value).subscribe(
       () => {
+        this.toasterService.pop('success', 'success', 'Successfully Added');
         this.router.navigate(['/etablissement/listcandidat']);
       });
   }

@@ -5,6 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToasterService } from 'angular2-toaster';
 
 export interface Data {
   nom: string;
@@ -27,7 +28,9 @@ export class ListcandidatComponent implements OnInit {
   dataSource: any;
   isDeleted = false;
 
-  constructor(private etablissementService: EtablissementService) { }
+  constructor(private etablissementService: EtablissementService,
+    private toasterService: ToasterService
+    ) { }
 
   ngOnInit(): void {
     this.getallcand();
@@ -55,6 +58,7 @@ export class ListcandidatComponent implements OnInit {
   deleteCand(id) {
     this.etablissementService.deletecand(id).subscribe(() => {
       this.getallcand();
+      this.toasterService.pop('success', 'success', 'successfully deleted');
     });
     }
   }

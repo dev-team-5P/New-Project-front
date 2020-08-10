@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EtablissementService } from '../../services/etablissement.service';
 import * as jwt_decode from 'jwt-decode';
 import { AuthService } from '../../services/auth.service';
-
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-parametrageetablisement',
@@ -13,7 +13,9 @@ import { AuthService } from '../../services/auth.service';
 export class ParametrageetablisementComponent implements OnInit {
 
   constructor(private etabService: EtablissementService,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private toasterService: ToasterService
+    ) { }
   parametrageetabForm: FormGroup;
   modifpassForm: FormGroup;
   decoded = jwt_decode(this.etabService.token);
@@ -42,14 +44,23 @@ export class ParametrageetablisementComponent implements OnInit {
     this.etabService.parametragedecompteetab(this.decoded.data._id, this.parametrageetabForm.value).subscribe((res: any) => {
       console.log(res);
       this.upload(res._id);
-
-    });
-  }
+      this.toasterService.pop('success', 'success', 'modification has been saved');
+    },
+    (err) => {
+      this.toasterService.pop('error', 'Erreur', 'something wrong');
+    }
+  );
+}
   Savepass() {
     this.etabService.modifPassetab(this.decoded.data._id, this.modifpassForm.value).subscribe((res: any) => {
       console.log(res);
-    });
-  }
+      this.toasterService.pop('success', 'success', 'modification has been saved');
+    },
+    (err) => {
+      this.toasterService.pop('error', 'Erreur', 'something wrong');
+    }
+  );
+}
 
   collapsed(event: any): void {
     // console.log(event);

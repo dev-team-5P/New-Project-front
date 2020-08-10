@@ -91,7 +91,6 @@ import { from } from 'rxjs';
     AppHeaderModule,
     AppSidebarModule,
     PerfectScrollbarModule,
-    ToasterModule,
     ToasterModule.forRoot(),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
@@ -141,7 +140,9 @@ import { from } from 'rxjs';
     // RegisteradminComponent,
     DefaultLayoutComponent
   ],
-  providers: [{
+  providers: [
+    ToasterService,
+    {
     // provide: LocationStrategy,
     // useClass: HashLocationStrategy,
     provide: HTTP_INTERCEPTORS,
