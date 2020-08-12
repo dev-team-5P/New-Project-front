@@ -9,17 +9,18 @@ import {
 
   @Injectable()
   export class AuthInterceptor implements HttpInterceptor {
-    token = localStorage.getItem('token');
-
+    
     intercept(
       req: HttpRequest<any>,
       next: HttpHandler
     ): Observable<HttpEvent<any>> {
+      const token = localStorage.getItem('token');
+
       // tslint:disable-next-line: triple-equals
-      if (this.token != null && this.token != undefined) {
+      if (token != null && token != undefined) {
         req = req.clone({
           setHeaders: {
-            Authorization: `Bearer ${this.token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         return next.handle(req);

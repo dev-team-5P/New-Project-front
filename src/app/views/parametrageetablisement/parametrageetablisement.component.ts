@@ -4,6 +4,7 @@ import { EtablissementService } from '../../services/etablissement.service';
 import * as jwt_decode from 'jwt-decode';
 import { AuthService } from '../../services/auth.service';
 import { ToasterService } from 'angular2-toaster';
+import { AvatarService } from '../../services/avatar.service';
 
 @Component({
   selector: 'app-parametrageetablisement',
@@ -14,11 +15,14 @@ export class ParametrageetablisementComponent implements OnInit {
 
   constructor(private etabService: EtablissementService,
     private auth: AuthService,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+    private avatarService: AvatarService
     ) { }
   parametrageetabForm: FormGroup;
   modifpassForm: FormGroup;
   decoded = jwt_decode(this.etabService.token);
+  logo = localStorage.getItem('avatar') || {};
+
   isCollapsed: boolean = true;
   isCollapsed1: boolean = true;
   file: File;
@@ -42,7 +46,6 @@ export class ParametrageetablisementComponent implements OnInit {
 
   Save() {
     this.etabService.parametragedecompteetab(this.decoded.data._id, this.parametrageetabForm.value).subscribe((res: any) => {
-      console.log(res);
       this.upload(res._id);
       this.toasterService.pop('success', 'success', 'modification has been saved');
     },
@@ -85,6 +88,10 @@ export class ParametrageetablisementComponent implements OnInit {
   upload(id) {
     this.data = new FormData();
     this.data.append('image', this.file);
-    this.auth.upload(this.data, id).subscribe((res) => {});
+    this.auth.upload(this.data, id).subscribe((res: any) => {
+      localStorage.setItem('avatar', res.logo);
+      this.avatarService.reloadAvatar();
+          console.log(res);
+    });
   }
 }
