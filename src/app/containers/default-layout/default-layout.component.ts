@@ -27,6 +27,7 @@ export class DefaultLayoutComponent {
   ngOnInit(): void {
     console.log(this.decoded);
     this.navItems = this.appSidebarService.items$;
+    localStorage.setItem('avatar',this.decoded.data.logo);
   }
   toggleMinimize(e) {
     this.sidebarMinimized = e;

@@ -32,6 +32,10 @@ export class AuthService {
     return this.http.put(url, data);
   }
   /*******************************Register canndidate ********************* */
+  uploadPhoto(data, id) {
+    const url = `${this.BaseUrl}/uploadphoto/${id}`;
+    return this.http.put(url, data);
+  }
   Register(j, data) {
     const url = `${this.BaseUrl}/Condidat/${j}/register`;
     return this.http.post(url, data);
@@ -85,6 +89,10 @@ export class AuthService {
     }
     this.connectedUser = {};
     return false;
+  }
+  uploadphoto(data, id) {
+    const url = `${this.BaseUrl}/uploadphoto/${id}`;
+    return this.http.put(url, data);
   }
   logout() {
       localStorage.clear();

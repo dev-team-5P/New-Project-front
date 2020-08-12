@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import {ToasterModule, ToasterService} from 'angular2-toaster';
+import { ToasterService} from 'angular2-toaster';
 import * as jwt_decode from 'jwt-decode';
 
 

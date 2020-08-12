@@ -12,14 +12,14 @@ export class SidebarService {
   role: string;
   decoded: any;
   private navItems = navItems;
+  token = localStorage.getItem('token');
   constructor() {
     this.items$ = this.getNavItemsByRole();
   }
   getNavItemsByRole(): Observable<INavData[]> {
-    const token = localStorage.getItem('token');
     // tslint:disable-next-line: triple-equals
-    if (token != null && token != undefined) {
-      this.decoded = jwt_decode(token);
+    if (this.token != null && this.token != undefined) {
+      this.decoded = jwt_decode(this.token);
       this.role = this.decoded.data.role;
     }
 // guard by role **********
