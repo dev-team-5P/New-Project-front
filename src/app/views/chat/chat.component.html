@@ -11,7 +11,7 @@
         <div class="inbox_chat">
           <div class="chat_list" *ngFor="let candidat of listeCandidats">
             <div class="chat_people" (click)="clickUser(candidat._id)">
-              <div class="chat_img"> <img src="{{candidat.logo}}" alt="sunil">{{candidat.nom}} </div>
+              <div class="chat_img"> <img [src]="loadcondidatavatar(candidat.logo)" alt="sunil">{{candidat.nom}} </div>
               <div class="chat_ib">
                 <h5>{{candidat.email}}</h5>
               </div>

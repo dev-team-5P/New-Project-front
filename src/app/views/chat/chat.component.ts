@@ -75,10 +75,15 @@ export class ChatComponent implements OnInit {
        this.messageForm.controls['content'].patchValue('');
      });
   }
-//   loadcondidatavatar(logo: string):string {
-//     console.log(logo);
-    
-// return ''
-//   }
+  loadcondidatavatar(logo: string): string {
+    console.log(typeof(logo));
+    if (logo === undefined || logo === null)
+    {
+      return 'https://ptetutorials.com/images/user-profile.png';
+    }
+    else {
+      return logo;
+    }
+  }
 
 }
