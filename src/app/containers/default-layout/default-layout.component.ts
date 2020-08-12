@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { SidebarService } from '../../services/sidebar.service';
 import { AuthService } from '../../services/auth.service';
-import * as jwt_decode from 'jwt-decode';
+import { AvatarService } from '../../services/avatar.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,15 +13,19 @@ import * as jwt_decode from 'jwt-decode';
 export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems ;
-  decoded = jwt_decode(this.appSidebarService.token);
-  avatar = localStorage.getItem('avatar')||{};
-
+  private logo;
   constructor( private router: Router,
-     private appSidebarService: SidebarService,
-     private auth: AuthService
-     ) {}
+    private appSidebarService: SidebarService,
+    private auth: AuthService,
+    private avatar: AvatarService
+    ) {
+      this.logo = this.avatar.avatar$;
+    }
+    avata = localStorage.getItem('avatar') || {};
+    decoded = this.appSidebarService.decoded;
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
+    console.log(this.decoded);
     this.navItems = this.appSidebarService.items$;
     localStorage.setItem('avatar',this.decoded.data.logo);
   }
