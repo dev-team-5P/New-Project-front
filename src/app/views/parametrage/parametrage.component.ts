@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SuperadminService } from '../../services/superadmin.service';
 import * as jwt_decode from 'jwt-decode';
 import { ToasterService } from 'angular2-toaster';
+import { AuthService } from '../../services/auth.service';
+import { AvatarService } from '../../services/avatar.service';
 
 @Component({
   selector: 'app-parametrage',
@@ -13,11 +15,17 @@ export class ParametrageComponent implements OnInit {
   parametrageForm: FormGroup;
   modifpassForm: FormGroup;
   decoded = jwt_decode(this.Superadmin.token);
+  logo = localStorage.getItem('avatar') || {}
+
   isCollapsed: boolean = true;
   isCollapsed1: boolean = true;
+  file: any;
+  data: FormData;
 
   constructor(private Superadmin: SuperadminService,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+    private auth : AuthService,
+    private avatarService: AvatarService
     ) { }
 
   ngOnInit(): void {
@@ -65,6 +73,19 @@ export class ParametrageComponent implements OnInit {
 
   expanded1(event: any): void {
     // console.log(event);
+  }
+  onFileChange(event) {
+    if (event.target.files && event.target.files.length) {
+      this.file = event.target.files[0];
+    }
+  }
+  upload(id) {
+    this.data = new FormData();
+    this.data.append('image', this.file);
+    this.auth.upload(this.data, id).subscribe((res: any) => {
+      localStorage.setItem('avatar',res.logo);
+      this.avatarService.reloadAvatar();
+    });
   }
 
 }
