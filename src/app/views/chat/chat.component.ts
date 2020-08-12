@@ -17,7 +17,8 @@ export class ChatComponent implements OnInit {
   messageForm: FormGroup;
   conversation: any;
   token = localStorage.getItem('token') || {};
-  decoded = jwt_decode(this.token)
+  logo =   localStorage.getItem('avatar');
+  decoded = jwt_decode(this.token);
   constructor(private socket: Socket, public chatService: ChatService, public auth: AuthService) {
     this.listeMessages = [];
     this.listeCandidats = [];
@@ -25,18 +26,24 @@ export class ChatComponent implements OnInit {
       content: new FormControl(''),
       user: new FormControl(''),
       name : new FormControl('')
-
     });
   }
-
+// https://ptetutorials.com/images/user-profile.png
   ngOnInit() {
+    console.log(typeof(localStorage.getItem('avatar')));
+    if (localStorage.getItem('avatar') === '' ||
+    localStorage.getItem('avatar') === 'undefined' ||
+     localStorage.getItem('avatar') === undefined ||
+      localStorage.getItem('avatar') === null) {
+      this.logo = 'https://ptetutorials.com/images/user-profile.png';
+    }
     this.messageForm = new FormGroup({
       content: new FormControl(''),
       user: new FormControl(this.auth.connectedUser._id),
-      name : new FormControl(this.decoded.data.nom)
+      name : new FormControl(this.decoded.data.nom),
+      logo: new FormControl(this.logo)
     });
-    console.log(this.decoded);
-    
+
     this.socket.on('newUserAdded', () => {
       this.auth.getListeUsers(this.decoded.data.etablisement).subscribe((res: any[]) => {
         this.listeCandidats = res.filter(obj => obj._id !== this.auth.connectedUser._id);
@@ -45,7 +52,6 @@ export class ChatComponent implements OnInit {
     this.auth.getListeUsers(this.decoded.data.etablisement).subscribe((res: any) => {
       console.log(res);
       this.listeCandidats = res.filter(obj => obj._id !== this.auth.connectedUser._id);
-      
       this.clickUser(this.listeCandidats[0]._id);
     });
     this.socket.on('newMessageSended', () => {
@@ -59,13 +65,20 @@ export class ChatComponent implements OnInit {
       console.log(res);
       this.conversation = res._id;
       this.listeMessages = res.messages;
+    console.log(this.listeMessages);
+
     });
   }
   sendMessage() {
      console.log('clicked');
-     this.chatService.sendMessage(this.messageForm.value, this.conversation).subscribe((res)=>{
+     this.chatService.sendMessage(this.messageForm.value, this.conversation).subscribe((res) => {
        this.messageForm.controls['content'].patchValue('');
      });
   }
+//   loadcondidatavatar(logo: string):string {
+//     console.log(logo);
+    
+// return ''
+//   }
 
 }

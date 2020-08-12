@@ -23,8 +23,8 @@ export class CandidatComponent implements OnInit {
 
   constructor(private candidat: CandidatService,
     private toasterService: ToasterService,
-    private  auth : AuthService,
-    private  avatarService : AvatarService
+    private  auth: AuthService,
+    private  avatarService: AvatarService
     ) { }
 
   ngOnInit(): void {
@@ -45,7 +45,7 @@ export class CandidatComponent implements OnInit {
   Savecand() {
     this.candidat.comptecand(this.decoded.data._id, this.paramcandForm.value).subscribe((res: any) => {
       console.log(res);
-      this.upload(res._id)
+      this.upload(res._id);
       this.toasterService.pop('success', 'success', 'modification has been saved');
     },
     (err) => {
@@ -87,7 +87,7 @@ export class CandidatComponent implements OnInit {
     this.data = new FormData();
     this.data.append('image', this.file);
     this.auth.uploadPhoto(this.data, id).subscribe((res: any) => {
-      localStorage.setItem('avatar',res.logo);
+      localStorage.setItem('avatar', res.logo);
       this.avatarService.reloadAvatar();
     });
   }
